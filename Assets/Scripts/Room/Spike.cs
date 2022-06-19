@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spike : MonoBehaviour
@@ -7,12 +5,12 @@ public class Spike : MonoBehaviour
     // Local Variables
 
     // Depedencies
-    RoomController room;
+    RoomManager roomManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        room = GetComponentInParent<RoomController>();
+        roomManager = RoomManager.Instance;
     }
 
     // Sent when another object enters a trigger collider attached to this
@@ -22,6 +20,6 @@ public class Spike : MonoBehaviour
         // If the player collides with the spike
         // then reset the room
         if (other.name == "Player")
-            room.Reset();
+            roomManager.currentRoom.Reset();
     }
 }

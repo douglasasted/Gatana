@@ -5,6 +5,7 @@ public class RoomController : MonoBehaviour
 {    
     [Header("Attributes")]
     [SerializeField] bool firstRoom;
+    [SerializeField] bool noTimerRoom;
     [SerializeField] float completeTime; // The time the player has to complete the room
 
     [Header("Dependencies")]
@@ -75,16 +76,20 @@ public class RoomController : MonoBehaviour
         roomCamera.Priority = 10;
 
 
-        // If this room has been completed then there is no need to start timer
-        if (!completed)
-        {
-            // Update Time Manager
+        // Update Room Manager
 
-            // Telling to time manager this is the current room
-            roomManager.currentRoom = this;
+        // Telling to room manager this is the current room
+        roomManager.currentRoom = this;
+
+
+        // Should this room have a timer? 
+        // (has been completed and should this room have a timer)
+        if (!completed && !noTimerRoom)
+        {        
             // Starting the timer with the room complete time
             timeManager.StartTimer(completeTime);
-            
+        
+        
             return;
         }
 
@@ -143,13 +148,13 @@ public class RoomController : MonoBehaviour
     }
 
     
-    bool CheckCompletion()
+    public bool CheckCompletion()
     {
         // Has the player finished the level
 
         // Checking if all enemies had been killed
         foreach (Enemy enemy in enemies)
-            if (enemy.gameObject.activeSelf)
+            if (!enemy.isDead)
                 // Has not completed the level yet, an enemy is alive
                 return false;
         
@@ -178,11 +183,13 @@ public class RoomController : MonoBehaviour
         {
             // Getting enemies back
             foreach (Enemy enemy in enemies)
-                enemy.gameObject.SetActive(true);
+                enemy.Reset();
         
             
-            // Restarting time
-            timeManager.StartTimer(completeTime);
+            // Should be a timer in this room?
+            if (!noTimerRoom)
+                // Restarting time
+                timeManager.StartTimer(completeTime);
         }
     }
 }

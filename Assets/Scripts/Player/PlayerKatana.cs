@@ -4,11 +4,17 @@ public class PlayerKatana : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] float angleOffset;
+    [SerializeField] float attackCooldown;
 
     [Header("Visual")]
     [SerializeField] SpriteRenderer characterVisual;
 
+    [Header("Sounds")]
+    [SerializeField] AudioSource slashSound;
+    [SerializeField] AudioSource hitSound;
+
     // Local Variables
+    float currentAttackCooldown;
 
     // Dependencies
     Animator anim;
@@ -29,6 +35,10 @@ public class PlayerKatana : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Updatin attack cooldown
+        currentAttackCooldown -= Time.deltaTime;
+
+
         // Only continue if dash is over
         if (playerMovement.isDashing)
             return;
@@ -51,7 +61,7 @@ public class PlayerKatana : MonoBehaviour
 
 
         // Does player wants to attack? then attack
-        if (inputManager.GetFirePressed()) 
+        if (inputManager.GetFirePressed() && currentAttackCooldown < 0) 
             // This gives us the direction of the cursor in relation to the katana
             Attack((Vector2) transform.position - _cursorPosition);
     }
@@ -62,6 +72,7 @@ public class PlayerKatana : MonoBehaviour
         // Sound
 
         // Playing the sound of the slash
+        slashSound.Play();
 
 
         // Attack & Animation
@@ -71,6 +82,8 @@ public class PlayerKatana : MonoBehaviour
         // since the animation is where the katana collider shows up
         // (from the enemy collision with the collider the damage occurs)
         anim.Play("Slash");
+        // Cooldown for player attacking again 
+        currentAttackCooldown = attackCooldown;
 
 
         // Dash
@@ -100,7 +113,15 @@ public class PlayerKatana : MonoBehaviour
         {
             // Hit trigger 
             other.GetComponent<IHittable>().Hit();
-        
+
+
+            // Sound
+
+            // Getting sound Clip
+            hitSound.clip = other.GetComponent<IHittable>().HitClip;
+            // Playing sound clip
+            hitSound.Play();
+
         
             // Reset dash after hitting attack
             playerMovement.ResetDash();

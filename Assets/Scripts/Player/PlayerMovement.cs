@@ -50,13 +50,28 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float fallVelocityLimit;
 
-
     [Header("Dash Attributes")]
     [SerializeField] int maxDashs;
     [SerializeField] float dashAngularDrag;
     [SerializeField] float dashTime;
     [SerializeField] float dashForce;
     [SerializeField, Range(0, 1)] float dashCut;
+
+    [Space]
+
+    [Header("Visual")]
+    [SerializeField] ParticleSystem dustEffect;
+
+    [Space]
+
+    [Header("Sound")]
+    [SerializeField] AudioSource jumpSound;
+    
+    [Space]
+
+    [SerializeField] AudioSource stepSound;
+    [SerializeField] AudioClip[] stepClips;
+    [SerializeField] float stepSoundCooldown;
 
     // Hidden variables
     [HideInInspector] public bool isDashing;
@@ -65,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
     float currentBufferTime;
     float currentCoyoteTime;
     float currentWallJumpCooldown;
+    float stepSoundCurrentCooldown;
 
     bool wallJumped;
     bool climbingInput = false;
@@ -127,6 +143,13 @@ public class PlayerMovement : MonoBehaviour
         // If player leaves groundes he can still jumps for a few frames
         if (IsGrounded())
         {
+            // Player was not grounded before, then
+            // play dust effect for the landing
+            if (currentCoyoteTime <= 0)
+                // Dust effect
+                dustEffect.Play();
+
+
             // Setting the grounded variables
             currentCoyoteTime = coyoteTime;
         
@@ -201,6 +224,25 @@ public class PlayerMovement : MonoBehaviour
         else
             rb.velocity = new Vector2(_horizontalVelocity, rb.velocity.y);
 
+
+        // Step sound
+
+        // If player is moving play the sound of player's steps
+        if (_horizontalInput != 0 && stepSoundCurrentCooldown <= 0 && IsGrounded())
+        {
+            // Get a random step
+            stepSound.clip = stepClips[Random.Range(0, 2)];
+            // Play the random step
+            stepSound.Play();
+
+
+            // Wait some time before the next step sound
+            stepSoundCurrentCooldown = stepSoundCooldown;
+        }
+        // Update timer variable
+        stepSoundCurrentCooldown -= Time.deltaTime;
+
+
         // Limiting the fall speed
         // If there's no limit to the fall velocity, than the player has no control to where they lands
         if (rb.velocity.y < -fallVelocityLimit)
@@ -213,9 +255,18 @@ public class PlayerMovement : MonoBehaviour
         // Local variable for getting the current velocity + the jump force
         Vector2 _velocity = new Vector2(rb.velocity.x, jumpForce);
 
+
         // Resetting variables
         currentBufferTime = 0;
         currentCoyoteTime = 0;
+
+
+        // Dust effect
+        dustEffect.Play();
+
+
+        // Sound
+        jumpSound.Play();
 
 
         // Wall Jump

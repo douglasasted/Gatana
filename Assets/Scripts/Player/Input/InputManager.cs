@@ -90,4 +90,10 @@ public class InputManager : MonoBehaviour
     {
         return controls.Player.CursorPosition.ReadValue<Vector2>();
     }
+
+    // Returns if the player wants to interact
+    public bool GetInteract()
+    {
+        return controls.Player.Interact.WasPressedThisFrame();
+    }
 }
