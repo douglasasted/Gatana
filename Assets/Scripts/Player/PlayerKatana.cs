@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class PlayerKatana : MonoBehaviour
@@ -30,6 +29,11 @@ public class PlayerKatana : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Only continue if dash is over
+        if (playerMovement.isDashing)
+            return;
+
+
         // Setting the katana in direction
 
         // Cursor position on the world
@@ -51,6 +55,7 @@ public class PlayerKatana : MonoBehaviour
             // This gives us the direction of the cursor in relation to the katana
             Attack((Vector2) transform.position - _cursorPosition);
     }
+
 
     void Attack(Vector2 _direction) 
     {
@@ -74,12 +79,31 @@ public class PlayerKatana : MonoBehaviour
         StartCoroutine(playerMovement.Dash(_direction));
     }
 
-    // Get the angle from  
+
+    // Get the angle from origin to target
     float GetAngleToPoint(Vector2 origin, Vector2 target) 
     {
         // The triangle of the origin to the target
         Vector2 triangle = origin - target;
         // The angle of the tangent of the triangle from radian to degrees
         return Mathf.Atan2(triangle.x, triangle.y) * Mathf.Rad2Deg;
+    }
+
+
+    // Sent when another object enters a trigger collider attached to this
+    // object (2D physics only).
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // If object has the component of hittable
+        // then trigger the hit
+        if (other.GetComponent<IHittable>() != null)
+        {
+            // Hit trigger 
+            other.GetComponent<IHittable>().Hit();
+        
+        
+            // Reset dash after hitting attack
+            playerMovement.ResetDash();
+        }
     }
 }

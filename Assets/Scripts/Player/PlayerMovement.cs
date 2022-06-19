@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour
     #region Variables
 
     [Header("Movement Attributes")]
-    // Movement Attributes
     [SerializeField] float speed;
+    [SerializeField] float airSpeed;
 
     [Space]
 
@@ -58,12 +58,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float dashForce;
     [SerializeField, Range(0, 1)] float dashCut;
 
+    // Hidden variables
+    [HideInInspector] public bool isDashing;
+
     // Local variables
     float currentBufferTime;
     float currentCoyoteTime;
     float currentWallJumpCooldown;
 
-    bool isDashing;
     bool wallJumped;
     bool climbingInput = false;
 
@@ -93,12 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        // Debug option
-        if (inputManager.GetRestartPressed())
-            transform.position = Vector2.zero;
-
-        
+    {        
         // If player is currently dashing
         // than he should not be in control until it ends
         if (isDashing)
@@ -192,9 +189,11 @@ public class PlayerMovement : MonoBehaviour
         if (currentBufferTime > 0 && currentCoyoteTime > 0)
             Jump();
 
-            
+        
+        // Speed if not grounded is different
+        float _speed = IsGrounded() ? speed : airSpeed;
         // Giving the velocity the player should be going to the rigidbody 2D
-        float _horizontalVelocity = _horizontalInput * speed + _apexBonus;
+        float _horizontalVelocity = _horizontalInput * _speed + _apexBonus;
         // If player just wall jumped, then they should not have total control
         if (wallJumped && currentWallJumpCooldown >= 0)
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, _horizontalVelocity, wallJumpLerp * Time.deltaTime), rb.velocity.y);
@@ -281,6 +280,13 @@ public class PlayerMovement : MonoBehaviour
         // Shows for the rest of the script that the dashing has been over
         isDashing = false;
     }
+
+
+    // Reset dashes to max dashs
+    public void ResetDash() 
+    {
+        dashs = maxDashs;
+    } 
 
 
     #region Collision
