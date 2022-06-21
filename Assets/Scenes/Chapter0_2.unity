@@ -973,7 +973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstRoom: 1
   noTimerRoom: 0
-  completeTime: 5
+  completeTime: 4
   spawnpoint: {fileID: 1072284254}
   enemiesParents: {fileID: 764452984}
 --- !u!1 &1256435506

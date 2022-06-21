@@ -45,6 +45,10 @@ public class RoomController : MonoBehaviour
         roomExits = GetComponentsInChildren<RoomExit>();
 
 
+        // The camera of this room should not be focus when starts scene
+        roomCamera.Priority = 0;
+
+
         // If this is the first room
         if (firstRoom)
             // Then this room needs to be active
