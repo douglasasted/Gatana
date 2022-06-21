@@ -56,8 +56,10 @@ public class PlayerKatana : MonoBehaviour
 
         // Visual
 
-        // Change character to face the cursor side
-        characterVisual.flipX = _cursorPosition.x > transform.position.x ? false : true;
+        // If the player is on wall, don't change direction
+        if (playerMovement.IsOnWall() == 0)
+            // Change character to face the cursor side
+            characterVisual.flipX = _cursorPosition.x > transform.position.x ? false : true;
 
 
         // Does player wants to attack? then attack

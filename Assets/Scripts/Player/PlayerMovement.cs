@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Space]
 
+    [SerializeField] float wallCoyoteTime;
     [SerializeField] float wallJumpForce;
     [SerializeField] float wallJumpCooldown;
     [SerializeField] float wallJumpLerp;
@@ -60,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     [Space]
 
     [Header("Visual")]
+    [SerializeField] SpriteRenderer mainVisual;
     [SerializeField] ParticleSystem dustEffect;
 
     [Space]
@@ -79,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
     // Local variables
     float currentBufferTime;
     float currentCoyoteTime;
+    float currentWallCoyoteTime;
     float currentWallJumpCooldown;
     float stepSoundCurrentCooldown;
 
@@ -91,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
     float gravityScale;
 
     // Dependencies
+    Animator anim;
     Rigidbody2D rb;
     InputManager inputManager;
 
@@ -101,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         // Getting dependencies
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         inputManager = InputManager.Instance;
 
@@ -160,24 +165,46 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
+        // Wall Jump
+
+        // Updating variables
+        currentWallCoyoteTime -= Time.deltaTime;
+        // If player wants to jump and was the wall: then jump
+        if (currentBufferTime > 0 && currentWallCoyoteTime > 0)
+            // Wall Jump
+            Jump(-IsOnWall());
+
+
         // Wall Slide
 
-        // Updating the variable
+        // Updating variables
         currentWallJumpCooldown -= Time.deltaTime;
         // If is on the wall and not on the ground then wall slide
-        if (climbingInput && IsOnWall() != 0 && !IsGrounded() && currentWallJumpCooldown <= 0)
+        if (IsOnWall() != 0 && !IsGrounded() && currentWallJumpCooldown <= 0)
         {
+            // Animation
+
+            // Is on wall and not grounded
+            anim.Play("Wall");
+            // In which direction should the player be facing?
+            mainVisual.flipX = IsOnWall() > 0 ? true : false;
+
+
             // The player should fall more slowly when on the wall
             rb.velocity = new Vector2(0, -0.5f);
 
+
+            // Stop climbing if player wants to exit
+            if (IsOnWall() != _horizontalInput)
+                currentWallJumpCooldown = wallJumpCooldown;
+
             
-            // If player wants to jump and is on the ground: then jump
-            if (currentBufferTime > 0)
-                // Wall Jump
-                Jump(-IsOnWall());
+            // Player is on wall,
+            currentWallCoyoteTime = wallCoyoteTime;
 
             return;
         }
+
 
         // Player Jump Height Control
 
@@ -247,6 +274,48 @@ public class PlayerMovement : MonoBehaviour
         // If there's no limit to the fall velocity, than the player has no control to where they lands
         if (rb.velocity.y < -fallVelocityLimit)
             rb.velocity = new Vector2(rb.velocity.x, -fallVelocityLimit);
+
+
+        // Animations
+
+        // Is the player on wall?
+        if (IsOnWall() != 0)
+        {
+            // If player is not grounded there's a different animation
+            if (!IsGrounded())
+                anim.Play("Wall");
+            else
+                anim.Play("Wall Grounded");
+            // In which direction should the player be facing?
+            mainVisual.flipX = IsOnWall() > 0 ? true : false;
+        }
+        // If player is not on the ground
+        else if (!IsGrounded())
+        {
+            // If player is going up
+            if (rb.velocity.y > 0)
+                anim.Play("Jump");
+            // If player is going down
+            else
+                anim.Play("Fall");
+        }
+        // Is the player trying to move?
+        else if (_horizontalInput != 0)
+        {
+            // In which direction is the character facing?
+            int _direction = mainVisual.flipX ? -1 : 1;
+            // In which direction is the character going?
+            // give the animation from that
+            if (_direction == _horizontalInput)
+                // Direction is the same, then walk forward
+                anim.Play("Walk");
+            else
+                // Direction is different, then walk backwards
+                anim.Play("Walk Backwards");
+        }
+        // If nothing else, the player is not moving
+        else
+            anim.Play("Idle");
     }
 
 
@@ -259,6 +328,7 @@ public class PlayerMovement : MonoBehaviour
         // Resetting variables
         currentBufferTime = 0;
         currentCoyoteTime = 0;
+        currentWallCoyoteTime = 0;
 
 
         // Dust effect
@@ -352,7 +422,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     // Check if player is colliding with the wall
-    int IsOnWall() 
+    public int IsOnWall() 
     {
         // Getting the position that the collision of the wall should be
         Vector2 _leftOnWallPosition = transform.position + new Vector3(-onWallDistance, 0, 0);
