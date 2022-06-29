@@ -28,7 +28,6 @@ public class TimeManager : MonoBehaviour
 
     #endregion
 
-
     [Header("Visual")]
     [SerializeField] GameObject timeBar;
     [SerializeField] RectTransform timeSlider;
@@ -80,7 +79,7 @@ public class TimeManager : MonoBehaviour
             // If times is over
             if (currentTime < 0)
                 // Restart the room
-                roomManager.currentRoom.Reset();
+                CameraTransition.Instance.TransitionReset();
         }
     }
 

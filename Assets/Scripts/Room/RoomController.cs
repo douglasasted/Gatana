@@ -12,6 +12,9 @@ public class RoomController : MonoBehaviour
     [SerializeField] Transform spawnpoint;
     [SerializeField] Transform enemiesParents;
 
+    // Hidden variables
+    [HideInInspector] public CinemachineVirtualCamera roomCamera;
+
     // Local Variables
     bool currentRoom;
     bool completed;
@@ -25,7 +28,6 @@ public class RoomController : MonoBehaviour
     RoomManager roomManager;
     TimeManager timeManager;
     InputManager inputManager;
-    CinemachineVirtualCamera roomCamera;
 
 
     // Start is called on the frame when a script is enabled just before
@@ -51,8 +53,14 @@ public class RoomController : MonoBehaviour
 
         // If this is the first room
         if (firstRoom)
-            // Then this room needs to be active
-            Enter();
+        {
+            if (player.gameObject.activeSelf)
+                // This room needs to activated himself
+                Enter();
+            else
+                // The room will be activated from the door
+                roomManager.currentRoom = this;
+        }
     }
 
     // Update is called every frame, if the MonoBehaviour is enabled.
@@ -60,8 +68,8 @@ public class RoomController : MonoBehaviour
     {
         // If player wants to restart the room
         // then restart the room
-        if (inputManager.GetRestartPressed() && currentRoom && timeManager.timerRunning)
-            Reset();
+        if (inputManager.GetRestartPressed() && currentRoom && timeManager.timerRunning && !CameraTransition.Instance.transitioning)
+            CameraTransition.Instance.TransitionReset();
     }
 
 
@@ -112,7 +120,7 @@ public class RoomController : MonoBehaviour
         if (nextRoom != roomManager.previousRoom && !_completed)
         {
             // Put everything from this room back in the original place
-            Reset();
+            CameraTransition.Instance.TransitionReset();
 
             // Return room has failed
             return false;
@@ -179,9 +187,11 @@ public class RoomController : MonoBehaviour
         // Reset variables that could cause an visual error
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.GetComponentInChildren<Animator>().Play("Idle");
+        // Player should be able to move again, and not be dieing
+        player.GetComponent<PlayerMovement>().cantMove = false;
 
 
-        // The enemies and time should only get back, if you
+        // The enemies and time should only get back, if player
         // still have not completed the level
         if (!completed)
         {

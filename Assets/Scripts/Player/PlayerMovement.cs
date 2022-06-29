@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Sound")]
     [SerializeField] AudioSource jumpSound;
+    [SerializeField] AudioSource climbSound;
     
     [Space]
 
@@ -77,6 +78,9 @@ public class PlayerMovement : MonoBehaviour
 
     // Hidden variables
     [HideInInspector] public bool isDashing;
+    [HideInInspector] public bool cantMove;
+
+    [HideInInspector] public float gravityScale;
 
     // Local variables
     float currentBufferTime;
@@ -89,9 +93,6 @@ public class PlayerMovement : MonoBehaviour
     bool climbingInput = false;
 
     int dashs;
-
-    // Initial variables
-    float gravityScale;
 
     // Dependencies
     Animator anim;
@@ -121,6 +122,20 @@ public class PlayerMovement : MonoBehaviour
         // than he should not be in control until it ends
         if (isDashing)
             return;
+
+
+        // If player should not move, remove his velocity and return
+        if (cantMove)
+        {
+            // The player should not be dieing currently
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+                // No other animation should be playing while the player can't move
+                anim.Play("Idle");
+
+
+            rb.velocity *= new Vector2(0.2f, 1);
+            return;
+        }
 
 
         // Getting inputs
@@ -363,7 +378,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Dash in the direction choosen
     // Mainly used by the katana script
-    public IEnumerator Dash(Vector2 direction) 
+    public IEnumerator Dash(Vector2 _direction) 
     {
         // Dash resource
 
@@ -383,7 +398,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Angular drag
         rb.angularDrag = dashAngularDrag;
-        rb.velocity = -direction.normalized * dashForce;
+        rb.velocity = -_direction.normalized * dashForce;
 
 
         // Time that the dash will be occuring in game

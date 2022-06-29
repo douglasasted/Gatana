@@ -2,19 +2,6 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    // Local Variables
-
-    // Depedencies
-    RoomManager roomManager;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Getting Dependencies
-        roomManager = RoomManager.Instance;
-    }
-
 
     // Sent when another object enters a trigger collider attached to this
     // object (2D physics only).
@@ -23,7 +10,8 @@ public class Spike : MonoBehaviour
         // If the player collides with the spike
         // then reset the room
         if (other.name == "Player")
-            roomManager.currentRoom.Reset();
+            // Restart the room
+            CameraTransition.Instance.TransitionReset();
     }
 
 

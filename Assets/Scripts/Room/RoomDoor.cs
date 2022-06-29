@@ -6,11 +6,15 @@ public class RoomDoor : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] string nextScene;
 
+    [Header("Sound")]
+    [SerializeField] AudioSource doorSound;
+
     // Local Variables
     RoomController room;
     bool playerClose;
 
     // Dependencies
+    Animator anim;
     InputManager inputManager;
 
 
@@ -19,6 +23,7 @@ public class RoomDoor : MonoBehaviour
     void Start()
     {
         // Getting dependencies
+        anim = GetComponent<Animator>();
         inputManager = InputManager.Instance;
 
 
@@ -32,7 +37,26 @@ public class RoomDoor : MonoBehaviour
     {
         // If player is close and he wants to interact
         if (playerClose && inputManager.GetInteract() && room.CheckCompletion())
-            SceneManager.LoadScene(nextScene);
+        {
+            // Player should not be able while the door opens
+            PlayerManager.Instance.player.GetComponent<PlayerMovement>().cantMove = true;
+
+
+            // Sound while door is opening
+            doorSound.Play();
+
+
+            // Start player exit animation
+            anim.Play("Exit");
+        }
+    }
+
+
+    // Change scene after the close animation finishes
+    public void ChangeScene() 
+    {
+        // Transition with the camera to the next scene
+        CameraTransition.Instance.TransitionScene(nextScene);
     }
 
 

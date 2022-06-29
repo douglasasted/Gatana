@@ -6,8 +6,18 @@ public class PlayerKatana : MonoBehaviour
     [SerializeField] float angleOffset;
     [SerializeField] float attackCooldown;
 
+    [Space]
+
     [Header("Visual")]
+    [SerializeField] SpriteRenderer katanaVisual;
     [SerializeField] SpriteRenderer characterVisual;
+
+    [Space]
+
+    [SerializeField] float cameraShakeIntensity;
+    [SerializeField] float cameraShakeTime;
+
+    [Space]
 
     [Header("Sounds")]
     [SerializeField] AudioSource slashSound;
@@ -37,6 +47,25 @@ public class PlayerKatana : MonoBehaviour
     {
         // Updatin attack cooldown
         currentAttackCooldown -= Time.deltaTime;
+
+
+        if (playerMovement.cantMove)
+        {
+            // This stops the animation from being in a weird position
+            anim.Play("Idle");
+
+
+            // This makes the arrow dissapear even when is on idle
+            katanaVisual.enabled = false;
+
+
+            // The script should not continue
+            return;
+        }
+
+
+        // If we are going forward, then the katana visual needs to be enabled
+        katanaVisual.enabled = true;
 
 
         // Only continue if dash is over
@@ -123,6 +152,14 @@ public class PlayerKatana : MonoBehaviour
             hitSound.clip = other.GetComponent<IHittable>().HitClip;
             // Playing sound clip
             hitSound.Play();
+
+
+            // Visual
+
+            // Getting variable
+            CinemachineShake _cameraShake = RoomManager.Instance.currentRoom.roomCamera.GetComponent<CinemachineShake>();
+            // Shaking camera
+            _cameraShake.StartCoroutine(_cameraShake.ShakeCamera(cameraShakeIntensity, cameraShakeTime));
 
         
             // Reset dash after hitting attack
