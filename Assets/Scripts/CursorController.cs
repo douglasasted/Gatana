@@ -28,5 +28,10 @@ public class CursorController : MonoBehaviour
 
         // Change position of this object to cursor position
         transform.position = _cursorPosition;
+
+
+        // Reset cursor visibility when player presses left mouse click
+        if (inputManager.GetFirePressed())
+            Cursor.visible = false;
     }
 }

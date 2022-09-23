@@ -37,4 +37,12 @@ public class RoomExit : MonoBehaviour
             nextRoom.Enter();
         }    
     }
+
+    // Callback to draw gizmos that are pickable and always drawn.
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+
+        Gizmos.DrawWireCube(transform.position, GetComponent<BoxCollider2D>().size);
+    }
 }

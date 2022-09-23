@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
             // The player should not be dieing currently
             if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Death"))
                 // No other animation should be playing while the player can't move
-                anim.Play("Idle");
+                PlayAnimation("Idle");
 
 
             rb.velocity *= new Vector2(0.2f, 1);
@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
 
             // Reset variables
             wallJumped = false;
-            dashs = maxDashs;
+            ResetDash();
         }
 
 
@@ -298,9 +298,9 @@ public class PlayerMovement : MonoBehaviour
         {
             // If player is not grounded there's a different animation
             if (!IsGrounded())
-                anim.Play("Wall");
+                PlayAnimation("Wall");
             else
-                anim.Play("Wall Grounded");
+                PlayAnimation("Wall Grounded");
             // In which direction should the player be facing?
             mainVisual.flipX = IsOnWall() > 0 ? true : false;
         }
@@ -309,10 +309,10 @@ public class PlayerMovement : MonoBehaviour
         {
             // If player is going up
             if (rb.velocity.y > 0)
-                anim.Play("Jump");
+                PlayAnimation("Jump");
             // If player is going down
             else
-                anim.Play("Fall");
+                PlayAnimation("Fall");
         }
         // Is the player trying to move?
         else if (_horizontalInput != 0)
@@ -323,14 +323,14 @@ public class PlayerMovement : MonoBehaviour
             // give the animation from that
             if (_direction == _horizontalInput)
                 // Direction is the same, then walk forward
-                anim.Play("Walk");
+                PlayAnimation("Walk");
             else
                 // Direction is different, then walk backwards
-                anim.Play("Walk Backwards");
+                PlayAnimation("Walk Backwards");
         }
         // If nothing else, the player is not moving
         else
-            anim.Play("Idle");
+            PlayAnimation("Idle");
     }
 
 
@@ -390,6 +390,11 @@ public class PlayerMovement : MonoBehaviour
         dashs -= 1;
 
 
+        // Character should appear "tired"
+        anim.SetLayerWeight(0, 0);
+        anim.SetLayerWeight(1, 1);
+
+
         // Shows for the rest of the script that the dashing is happening
         isDashing = true;
 
@@ -422,6 +427,11 @@ public class PlayerMovement : MonoBehaviour
     public void ResetDash() 
     {
         dashs = maxDashs;
+
+
+        // Character should not appear tired anymore
+        anim.SetLayerWeight(0, 1);
+        anim.SetLayerWeight(1, 0);
     } 
 
 
@@ -456,6 +466,18 @@ public class PlayerMovement : MonoBehaviour
 
         // Checking the collision
         return _side;
+    }
+
+    #endregion
+
+
+    #region Utility
+
+    // Play animation in both layers
+    void PlayAnimation(string animation)
+    {
+        anim.Play(animation, 0);
+        anim.Play(animation, 1);
     }
 
     #endregion

@@ -71,8 +71,8 @@ public class CameraTransition : MonoBehaviour
     {
         // Play the fade out animation
         anim.Play("FadeOut");
-
         
+
         // Save the scene that will be loaded
         scene = _scene;
     }
@@ -83,6 +83,10 @@ public class CameraTransition : MonoBehaviour
     {
         // Death sound
         deathSound.Play();
+
+
+        // Stops timer from continuing when player is transitioning
+        TimeManager.Instance.FinishTimer();
 
         
         // For other classes to know this script is transtioning
@@ -100,7 +104,8 @@ public class CameraTransition : MonoBehaviour
 
 
         // Player should not be moving while death occurs
-        player.GetComponent<Animator>().Play("Death");
+        player.GetComponent<Animator>().Play("Death", 0);
+        player.GetComponent<Animator>().Play("Death", 1);
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.GetComponent<Rigidbody2D>().gravityScale = 0;
         player.GetComponent<PlayerMovement>().cantMove = true;

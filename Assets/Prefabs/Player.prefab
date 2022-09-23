@@ -184,6 +184,7 @@ MonoBehaviour:
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
@@ -759,6 +760,7 @@ MonoBehaviour:
   stepSoundCooldown: 0.25
   isDashing: 0
   cantMove: 0
+  gravityScale: 0
 --- !u!50 &4869373499099590580
 Rigidbody2D:
   serializedVersion: 4

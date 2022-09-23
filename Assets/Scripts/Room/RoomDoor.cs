@@ -41,9 +41,11 @@ public class RoomDoor : MonoBehaviour
             // Player should not be able while the door opens
             PlayerManager.Instance.player.GetComponent<PlayerMovement>().cantMove = true;
 
-
             // Sound while door is opening
             doorSound.Play();
+
+            // Stops timer from continuing when player is entering the door
+            TimeManager.Instance.FinishTimer();
 
 
             // Start player exit animation

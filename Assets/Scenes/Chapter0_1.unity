@@ -174,9 +174,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstRoom: 0
   noTimerRoom: 1
+  lockedCamera: 1
   completeTime: 5
   spawnpoint: {fileID: 593016699}
   enemiesParents: {fileID: 460822926}
+  topRightPoint: {x: 0, y: 0}
+  bottomLeftPoint: {x: 0, y: 0}
   roomCamera: {fileID: 0}
 --- !u!1 &95043778
 GameObject:
@@ -1053,6 +1056,7 @@ MonoBehaviour:
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
@@ -1783,6 +1787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
@@ -1851,9 +1856,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstRoom: 0
   noTimerRoom: 1
+  lockedCamera: 1
   completeTime: 5
   spawnpoint: {fileID: 1069485549}
   enemiesParents: {fileID: 846535594}
+  topRightPoint: {x: 0, y: 0}
+  bottomLeftPoint: {x: 0, y: 0}
   roomCamera: {fileID: 0}
 --- !u!1 &1069485548
 GameObject:
@@ -2312,9 +2320,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstRoom: 1
   noTimerRoom: 1
+  lockedCamera: 1
   completeTime: 5
   spawnpoint: {fileID: 1072284254}
   enemiesParents: {fileID: 764452984}
+  topRightPoint: {x: 0, y: 0}
+  bottomLeftPoint: {x: 0, y: 0}
   roomCamera: {fileID: 0}
 --- !u!1 &1256435506
 GameObject:
@@ -42694,10 +42705,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 18, y: 25}
-      - {x: -8.9, y: 25}
-      - {x: -8.9, y: -4.9}
-      - {x: 18, y: -4.9}
+    - - {x: 17.15, y: 24.9}
+      - {x: -9.2, y: 24.9}
+      - {x: -9.2, y: -5}
+      - {x: 17.15, y: -5}
 --- !u!114 &1728293337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42712,9 +42723,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstRoom: 0
   noTimerRoom: 1
+  lockedCamera: 0
   completeTime: 5
   spawnpoint: {fileID: 1920076719}
   enemiesParents: {fileID: 588930394}
+  topRightPoint: {x: 17.15, y: 24.9}
+  bottomLeftPoint: {x: -9.2, y: -5}
   roomCamera: {fileID: 0}
 --- !u!1 &1774063423
 GameObject:
@@ -43269,9 +43283,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstRoom: 0
   noTimerRoom: 1
+  lockedCamera: 1
   completeTime: 5
   spawnpoint: {fileID: 357634262}
   enemiesParents: {fileID: 512683882}
+  topRightPoint: {x: 0, y: 0}
+  bottomLeftPoint: {x: 0, y: 0}
   roomCamera: {fileID: 0}
 --- !u!1 &2009895662
 GameObject:
@@ -43324,9 +43341,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstRoom: 0
   noTimerRoom: 1
+  lockedCamera: 1
   completeTime: 5
   spawnpoint: {fileID: 291851626}
   enemiesParents: {fileID: 1810311027}
+  topRightPoint: {x: 0, y: 0}
+  bottomLeftPoint: {x: 0, y: 0}
   roomCamera: {fileID: 0}
 --- !u!1 &2086095987
 GameObject:

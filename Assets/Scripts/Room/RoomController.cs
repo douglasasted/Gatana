@@ -6,13 +6,18 @@ public class RoomController : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] bool firstRoom;
     [SerializeField] bool noTimerRoom;
+    public bool lockedCamera;
     [SerializeField] float completeTime; // The time the player has to complete the room
 
     [Header("Dependencies")]
     [SerializeField] Transform spawnpoint;
     [SerializeField] Transform enemiesParents;
 
-    // Hidden variables
+    [Header("Editing")]
+    public Vector2 topRightPoint;
+    public Vector2 bottomLeftPoint;
+
+    // Hiddem Variables
     [HideInInspector] public CinemachineVirtualCamera roomCamera;
 
     // Local Variables
@@ -50,13 +55,23 @@ public class RoomController : MonoBehaviour
         // The camera of this room should not be focus when starts scene
         roomCamera.Priority = 0;
 
+        // The camera should be following the player
+        // Unless the camera should not move
+        if (!lockedCamera)
+            roomCamera.m_Follow = player;
+
 
         // If this is the first room
         if (firstRoom)
         {
             if (player.gameObject.activeSelf)
+            {
                 // This room needs to activated himself
                 Enter();
+
+                // Put player at the first location
+                player.transform.position = spawnpoint.position;
+            }
             else
                 // The room will be activated from the door
                 roomManager.currentRoom = this;
@@ -206,4 +221,29 @@ public class RoomController : MonoBehaviour
                 timeManager.StartTimer(completeTime);
         }
     }
+
+
+    #region Editor Function's
+    
+    public void ResetRoomCameraBoundaries ()
+    {
+        // Temporary variables
+        PolygonCollider2D _boundary = GetComponent<PolygonCollider2D>();
+        Vector2[] _boundariesPoints = 
+        {
+            new Vector2(8.89f, 5), 
+            new Vector2(-8.89f, 5), 
+            new Vector2(-8.89f, -5), 
+            new Vector2(8.89f, -5)
+        }; // The default position for each point (the same as the size of the camera)
+
+
+        // Actually setting the points
+        _boundary.points = _boundariesPoints;
+        
+        topRightPoint = new Vector2(8.89f, 5);
+        bottomLeftPoint = new Vector2(-8.89f, -5);
+    }
+    
+    #endregion
 }
