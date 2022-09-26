@@ -7,6 +7,7 @@ public class TutorialController : MonoBehaviour
     [SerializeField] Animator jumpingTutorial;
     [SerializeField] Animator climbingTutorial;
     [SerializeField] Animator attackTutorial;
+    [SerializeField] Animator interactTutorial;
 
 
     // Local Variables
@@ -72,6 +73,10 @@ public class TutorialController : MonoBehaviour
 
                     // Finished attack tutorial
                     attackTutorial.SetTrigger("FadeOut");
+
+
+                    // Start interact tutorial
+                    interactTutorial.SetTrigger("FadeIn");
                 }
 
                 break;
