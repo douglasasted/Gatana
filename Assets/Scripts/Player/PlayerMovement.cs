@@ -127,10 +127,8 @@ public class PlayerMovement : MonoBehaviour
         // If player should not move, remove his velocity and return
         if (cantMove)
         {
-            // The player should not be dieing currently
-            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Death"))
-                // No other animation should be playing while the player can't move
-                PlayAnimation("Idle");
+            // No other animation should be playing while the player can't move
+            PlayAnimation("Idle");
 
 
             rb.velocity *= new Vector2(0.2f, 1);
@@ -200,7 +198,7 @@ public class PlayerMovement : MonoBehaviour
             // Animation
 
             // Is on wall and not grounded
-            anim.Play("Wall");
+            PlayAnimation("Wall");
             // In which direction should the player be facing?
             mainVisual.flipX = IsOnWall() > 0 ? true : false;
 
@@ -474,8 +472,13 @@ public class PlayerMovement : MonoBehaviour
     #region Utility
 
     // Play animation in both layers
-    void PlayAnimation(string animation)
+    public void PlayAnimation(string animation)
     {
+        // The player should not be dieing currently
+        if (anim.GetBool("Death"))
+            // No other animation can change death
+            return;
+
         anim.Play(animation, 0);
         anim.Play(animation, 1);
     }

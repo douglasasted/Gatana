@@ -104,8 +104,8 @@ public class CameraTransition : MonoBehaviour
 
 
         // Player should not be moving while death occurs
-        player.GetComponent<Animator>().Play("Death", 0);
-        player.GetComponent<Animator>().Play("Death", 1);
+        player.GetComponent<PlayerMovement>().PlayAnimation("Death");
+        player.GetComponent<Animator>().SetBool("Death", true);
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.GetComponent<Rigidbody2D>().gravityScale = 0;
         player.GetComponent<PlayerMovement>().cantMove = true;
@@ -117,6 +117,10 @@ public class CameraTransition : MonoBehaviour
     {
         // For other classes to know this script is not transtioning anymore
         transitioning = false;
+
+
+        // Not dieing anymore
+        player.GetComponent<Animator>().SetBool("Death", false);
 
 
         // If there is a cinemachine confiner
