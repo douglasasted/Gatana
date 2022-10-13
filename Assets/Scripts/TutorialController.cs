@@ -68,16 +68,8 @@ public class TutorialController : MonoBehaviour
             case 3:
                 
                 if (inputManager.GetFirePressed())
-                {
-                    tutorial = 4;
-
                     // Finished attack tutorial
                     attackTutorial.SetTrigger("FadeOut");
-
-
-                    // Start interact tutorial
-                    interactTutorial.SetTrigger("FadeIn");
-                }
 
                 break;
         }
@@ -93,7 +85,8 @@ public class TutorialController : MonoBehaviour
 
             tutorial = 2;
 
-            // Fade out the jumping tutorial if it's still active
+            // Fade out the other tutorials if they are still active
+            walkingTutorial.SetTrigger("FadeOut");
             jumpingTutorial.SetTrigger("FadeOut");
 
             // Show climbing tutorial
@@ -108,6 +101,15 @@ public class TutorialController : MonoBehaviour
             
             // Show next tutorial
             attackTutorial.SetTrigger("FadeIn");
+        }
+        else if (other.gameObject.name == "Interact Tutorial")
+        {
+            // Remove interact tutorial if they are still active
+            attackTutorial.SetTrigger("FadeIn");
+
+
+            // Start interact tutorial
+            interactTutorial.SetTrigger("FadeIn");
         }
     }
 }

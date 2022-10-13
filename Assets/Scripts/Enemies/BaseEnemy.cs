@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IHittable
+public class BaseEnemy : MonoBehaviour, IHittable
 {
+    [Header("General Attributes")]
+    [SerializeField] float interactRange;
+
     [Header("Visual")]
-    [SerializeField] SpriteRenderer mainVisual;
+    [SerializeField] protected SpriteRenderer mainVisual;
     [SerializeField] SpriteRenderer deadVisual;
     [SerializeField] SpriteRenderer bloodSplashVisual;
     [SerializeField] GameObject bloodEffect;
@@ -13,19 +16,39 @@ public class Enemy : MonoBehaviour, IHittable
     
     // Hidden variables
     [HideInInspector] public bool isDead;
+    // Dependencies
+    [HideInInspector] public GameObject player;
 
     // Local Variables
+    Vector2 startPosition;
 
     // Dependencies
-    GameObject player;
+    protected Rigidbody2D rb;
 
 
     // Start is called on the frame when a script is enabled just before
     // any of the Update methods is called the first time.
-    void Start()
+    public virtual void Start()
     {
         // Getting dependencies
         player = PlayerManager.Instance.player;
+        rb = GetComponent<Rigidbody2D>();
+
+
+        // Setting up start values
+        startPosition = transform.position;
+    }
+
+
+    // Update is called every frame, if the MonoBehaviour is enabled.
+    void Update()
+    {
+        // Start the main loop of the enemy
+        // Player needs to be close and enemy needs to not be dead
+        if (!isDead && PlayerOnRange()) 
+            Main();
+        else
+            rb.velocity *= new Vector2(0, 1);
     }
 
 
@@ -39,9 +62,24 @@ public class Enemy : MonoBehaviour, IHittable
     }
 
 
-    // What happens when the enemy gets hitten?
-    public void Hit()
+    protected virtual void Main() 
     {
+        // Enemy needs to face the player direction
+
+        // The enemy is being flipped when the player x is greater than he's x
+        // meaning they are to the the right of the player
+        mainVisual.flipX = player.transform.position.x > transform.position.x ? false : true;
+    }
+
+
+    // What happens when the enemy gets hitten?
+    public virtual void Hit()
+    {
+        // If enemy is already dead, it should not be able to die again
+        if (isDead)
+            return;
+
+
         // Enemy is now dead
         isDead = true;
 
@@ -67,12 +105,13 @@ public class Enemy : MonoBehaviour, IHittable
         // Showing blood Splash on wall
         bloodSplashVisual.enabled = true;
         bloodSplashVisual.flipX = playerDirection < 0 ? true : false;
+        bloodSplashVisual.transform.parent = null;
         // Should not have any collision anymore
         GetComponent<BoxCollider2D>().enabled = false;
     }
 
 
-    public void Reset() 
+    public virtual void Reset() 
     {
         // Enemy is not dead anymore
         isDead = false;
@@ -86,7 +125,35 @@ public class Enemy : MonoBehaviour, IHittable
         deadVisual.enabled = false;
         // Removing blood splash from wall
         bloodSplashVisual.enabled = false;
+        // Reset enemy back to start position and reset velocity
+        transform.position = startPosition;
+        rb.velocity = Vector2.zero;
         // Collision should be enabled
         GetComponent<BoxCollider2D>().enabled = true;
     }
+
+    #region Utility
+
+    public bool PlayerOnRange() 
+    {
+        return Vector2.Distance(player.transform.position, transform.position) <= interactRange;
+    }
+
+    #endregion
+
+
+    #region Debug
+
+    // Callback to draw gizmos that are pickable and always drawn.
+    protected virtual void OnDrawGizmos()
+    {
+        // Gizmos for interact range
+
+        // Changing the color of the gizmos
+        Gizmos.color = Color.blue;
+        // Drawing the attack circle
+        Gizmos.DrawWireSphere(transform.position, interactRange);    
+    }
+
+    #endregion
 }

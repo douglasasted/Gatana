@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8304347948358470884}
   - component: {fileID: 3725850681296149254}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Slash Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5802462714614339788}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Sounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 4869373497446727125}
   - component: {fileID: 4869373497446727130}
   - component: {fileID: 4869373497446727131}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Katana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4869373497550787550}
   - component: {fileID: 4869373497550787551}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Main Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -966,7 +966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7958756735962169113}
   - component: {fileID: 3414085145706059337}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Hit Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}

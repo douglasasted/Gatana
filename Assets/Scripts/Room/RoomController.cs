@@ -26,7 +26,7 @@ public class RoomController : MonoBehaviour
     
     // Initial Variables
     Transform player;
-    Enemy[] enemies;
+    BaseEnemy[] enemies;
     RoomExit[] roomExits;
 
     // Dependencies
@@ -48,7 +48,7 @@ public class RoomController : MonoBehaviour
 
         // Getting initial variables
         player = PlayerManager.Instance.player.transform;
-        enemies = enemiesParents.GetComponentsInChildren<Enemy>();
+        enemies = enemiesParents.GetComponentsInChildren<BaseEnemy>();
         roomExits = GetComponentsInChildren<RoomExit>();
 
 
@@ -144,7 +144,7 @@ public class RoomController : MonoBehaviour
         // but player returned then we still need to reset the enemies
         else if (!_completed)
             // Getting enemies back
-            foreach (Enemy enemy in enemies)
+            foreach (BaseEnemy enemy in enemies)
                 enemy.gameObject.SetActive(true);
 
 
@@ -180,7 +180,7 @@ public class RoomController : MonoBehaviour
         // Has the player finished the level
 
         // Checking if all enemies had been killed
-        foreach (Enemy enemy in enemies)
+        foreach (BaseEnemy enemy in enemies)
             if (!enemy.isDead)
                 // Has not completed the level yet, an enemy is alive
                 return false;
@@ -211,7 +211,7 @@ public class RoomController : MonoBehaviour
         if (!completed)
         {
             // Getting enemies back
-            foreach (Enemy enemy in enemies)
+            foreach (BaseEnemy enemy in enemies)
                 enemy.Reset();
         
             

@@ -1388,7 +1388,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1228091121}
   m_Father: {fileID: 2066313631}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1565,7 +1566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8041464288548665514, guid: 63c5197eb4389b64fa81c10f1f5916c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0048890114
+      value: -0.009583473
       objectReference: {fileID: 0}
     - target: {fileID: 8041464288548665514, guid: 63c5197eb4389b64fa81c10f1f5916c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1981,7 +1982,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789757, y: 1}
+    m_SensorSize: {x: 1.7760814, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2926,7 +2927,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789757, y: 1}
+    m_SensorSize: {x: 1.7760814, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3556,7 +3557,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789757, y: 1}
+    m_SensorSize: {x: 1.7760814, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4632,7 +4633,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789757, y: 1}
+    m_SensorSize: {x: 1.7760814, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5054,7 +5055,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789757, y: 1}
+    m_SensorSize: {x: 1.7760814, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5275,6 +5276,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2331aed01ae611843b86848e9ec074e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1228091120
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 358220000}
+    m_Modifications:
+    - target: {fileID: 803153651490855202, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 803153651490855202, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 803153651490855202, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 803153651490855202, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 803153651490855202, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 803153651490855202, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 803153651490855202, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 803153651490855202, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 803153651490855202, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 803153651490855202, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 803153651490855202, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 803153651490855229, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+      propertyPath: m_Name
+      value: Combat Enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+--- !u!4 &1228091121 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 803153651490855202, guid: ec9295e2390d90f439ae58d9b47988ca, type: 3}
+  m_PrefabInstance: {fileID: 1228091120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1232957370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100354,7 +100417,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789757, y: 1}
+    m_SensorSize: {x: 1.7760814, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -101276,7 +101339,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789757, y: 1}
+    m_SensorSize: {x: 1.7760814, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -101484,7 +101547,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789757, y: 1}
+    m_SensorSize: {x: 1.7760814, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -101858,7 +101921,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789757, y: 1}
+    m_SensorSize: {x: 1.7760814, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -102783,7 +102846,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789757, y: 1}
+    m_SensorSize: {x: 1.7760814, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -103264,7 +103327,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789757, y: 1}
+    m_SensorSize: {x: 1.7760814, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

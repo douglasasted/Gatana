@@ -1,15 +1,7 @@
 using UnityEngine;
 
-public class PlayerKatana : MonoBehaviour
+public class PlayerKatana : BaseKatana
 {
-    [Header("Attributes")]
-    [SerializeField] float angleOffset;
-    [SerializeField] float attackCooldown;
-
-    [Space]
-
-    [Header("Visual")]
-    [SerializeField] SpriteRenderer katanaVisual;
     [SerializeField] SpriteRenderer characterVisual;
 
     [Space]
@@ -17,36 +9,28 @@ public class PlayerKatana : MonoBehaviour
     [SerializeField] float cameraShakeIntensity;
     [SerializeField] float cameraShakeTime;
 
-    [Space]
-
-    [Header("Sounds")]
-    [SerializeField] AudioSource slashSound;
-    [SerializeField] AudioSource hitSound;
-
     // Local Variables
-    float currentAttackCooldown;
 
     // Dependencies
-    Animator anim;
-    InputManager inputManager;
     PlayerMovement playerMovement;
+    InputManager inputManager;
 
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         // Getting dependencies
-        anim = GetComponent<Animator>();
         inputManager = InputManager.Instance;
         playerMovement = transform.parent.GetComponent<PlayerMovement>();
     }
 
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        // Updatin attack cooldown
-        currentAttackCooldown -= Time.deltaTime;
+        base.Update();
 
 
         if (playerMovement.cantMove)
@@ -73,14 +57,13 @@ public class PlayerKatana : MonoBehaviour
             return;
 
 
-        // Setting the katana in direction
+        // Local Variables
 
         // Cursor position on the world
         Vector2 _cursorPosition = Camera.main.ScreenToWorldPoint(inputManager.GetCursorPosition());
-        // Getting the angle the katana should be
-        float _katanaAngle = -GetAngleToPoint(transform.position, _cursorPosition) + angleOffset;
-        // Set katana in the cursor direction
-        transform.rotation = Quaternion.Euler(0, 0, _katanaAngle);
+        
+
+        MoveKatana(_cursorPosition);
 
 
         // Visual
@@ -98,23 +81,15 @@ public class PlayerKatana : MonoBehaviour
     }
 
 
-    void Attack(Vector2 _direction) 
+    protected override void MoveKatana(Vector2 _targetPosition) 
+    {  
+        base.MoveKatana(_targetPosition);
+    }
+
+
+    public override void Attack(Vector2 _direction) 
     {
-        // Sound
-
-        // Playing the sound of the slash
-        slashSound.Play();
-
-
-        // Attack & Animation
-
-        // Playing the slash animation
-        // This is technically the attack, 
-        // since the animation is where the katana collider shows up
-        // (from the enemy collision with the collider the damage occurs)
-        anim.Play("Slash");
-        // Cooldown for player attacking again 
-        currentAttackCooldown = attackCooldown;
+        base.Attack(_direction);
 
 
         // Dash
@@ -124,21 +99,11 @@ public class PlayerKatana : MonoBehaviour
     }
 
 
-    // Get the angle from origin to target
-    float GetAngleToPoint(Vector2 origin, Vector2 target) 
-    {
-        // The triangle of the origin to the target
-        Vector2 triangle = origin - target;
-        // The angle of the tangent of the triangle from radian to degrees
-        return Mathf.Atan2(triangle.x, triangle.y) * Mathf.Rad2Deg;
-    }
-
-
     // Sent when another object enters a trigger collider attached to this
     // object (2D physics only).
     void OnTriggerEnter2D(Collider2D other)
     {
-        // If object has the component of hittable
+        // If object has the hittable component
         // then trigger the hit
         if (other.GetComponent<IHittable>() != null)
         {

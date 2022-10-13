@@ -38,8 +38,8 @@ public class PlayerMovement : MonoBehaviour
     [Space]
 
     // Attributes for checking if player is grounded
-    [SerializeField] float     onWallDistance;
-    [SerializeField] Vector2   onWallSize;
+    [SerializeField] float   onWallDistance;
+    [SerializeField] Vector2 onWallSize;
 
     [Space]
 
