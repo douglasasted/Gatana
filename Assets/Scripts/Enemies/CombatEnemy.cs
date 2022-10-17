@@ -133,8 +133,7 @@ public class CombatEnemy : BaseEnemy
         
 
         // Stop katana from continuing attack after enemy has been killed
-        katana.StopAllCoroutines();
-        katana.isAnticipating = false;
+        katana.Reset();
         katana.katanaVisual.enabled = false;
     }
 
@@ -146,6 +145,16 @@ public class CombatEnemy : BaseEnemy
 
         // Reset katana if enemy is reseted
         katana.katanaVisual.enabled = true;
+
+
+        // Stop dashing from continuing if it was happening
+        isDashing = false;
+        rb.angularDrag = 0;
+        StopAllCoroutines();
+        
+        
+        // Also stop katana from continuing
+        katana.Reset();
     }
 
 

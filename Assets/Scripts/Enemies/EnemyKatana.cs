@@ -103,6 +103,15 @@ public class EnemyKatana : BaseKatana
     }
 
 
+    // For when the room needs to restart and so does the enemy
+    public void Reset() 
+    {
+        StopAllCoroutines();
+        isAnticipating = false;
+        currentAttackCooldown = 0;
+    }
+
+
     // Sent when another object enters a trigger collider attached to this
     // object (2D physics only).
     void OnTriggerEnter2D(Collider2D other)

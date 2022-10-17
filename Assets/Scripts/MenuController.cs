@@ -5,6 +5,6 @@ public class MenuController : MonoBehaviour
 {
     public void NewGame()
     {
-        SceneManager.LoadScene("Chapter0_1");
+        SceneManager.LoadScene("Chapter1_1");
     }
 }

@@ -268,7 +268,7 @@ public class PlayerMovement : MonoBehaviour
         // Step sound
 
         // If player is moving play the sound of player's steps
-        if (_horizontalInput != 0 && stepSoundCurrentCooldown <= 0 && IsGrounded())
+        if (_horizontalInput != 0 && stepSoundCurrentCooldown <= 0 && IsGrounded() && IsOnWall() == 0)
         {
             // Get a random step
             stepSound.clip = stepClips[Random.Range(0, 2)];

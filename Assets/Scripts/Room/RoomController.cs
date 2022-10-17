@@ -145,7 +145,7 @@ public class RoomController : MonoBehaviour
         else if (!_completed)
             // Getting enemies back
             foreach (BaseEnemy enemy in enemies)
-                enemy.gameObject.SetActive(true);
+                enemy.Reset();
 
 
         // Marking room as completed

@@ -9,6 +9,10 @@ public class PlayerKatana : BaseKatana
     [SerializeField] float cameraShakeIntensity;
     [SerializeField] float cameraShakeTime;
 
+    [Header("Player Attributes")]
+
+    [SerializeField] bool canAttack = true;
+
     // Local Variables
 
     // Dependencies
@@ -75,7 +79,7 @@ public class PlayerKatana : BaseKatana
 
 
         // Does player wants to attack? then attack
-        if (inputManager.GetFirePressed() && currentAttackCooldown < 0) 
+        if (inputManager.GetFirePressed() && currentAttackCooldown < 0 && canAttack) 
             // This gives us the direction of the cursor in relation to the katana
             Attack((Vector2) transform.position - _cursorPosition);
     }
