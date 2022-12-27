@@ -4,6 +4,7 @@ public class BaseEnemy : MonoBehaviour, IHittable
 {
     [Header("General Attributes")]
     [SerializeField] float interactRange;
+    [SerializeField] RoomController room;
 
     [Header("Visual")]
     [SerializeField] protected SpriteRenderer mainVisual;
@@ -12,7 +13,7 @@ public class BaseEnemy : MonoBehaviour, IHittable
     [SerializeField] GameObject bloodEffect;
 
     [Header("Sounds")]
-    public AudioClip hitClip;
+    [SerializeField] AudioSource deathSound;
     
     // Hidden variables
     [HideInInspector] public bool isDead;
@@ -52,16 +53,6 @@ public class BaseEnemy : MonoBehaviour, IHittable
     }
 
 
-    // Audio clip that player needs to play when enemy gets hitten    
-    public AudioClip HitClip 
-    { 
-        get
-        {
-            return hitClip;
-        }     
-    }
-
-
     protected virtual void Main() 
     {
         // Enemy needs to face the player direction
@@ -73,11 +64,11 @@ public class BaseEnemy : MonoBehaviour, IHittable
 
 
     // What happens when the enemy gets hitten?
-    public virtual void Hit()
+    public virtual bool Hit()
     {
         // If enemy is already dead, it should not be able to die again
         if (isDead)
-            return;
+            return false;
 
 
         // Enemy is now dead
@@ -108,6 +99,18 @@ public class BaseEnemy : MonoBehaviour, IHittable
         bloodSplashVisual.transform.parent = null;
         // Should not have any collision anymore
         GetComponent<BoxCollider2D>().enabled = false;
+        // If enemy is in a room and all other enemy are dead, then signal to player
+        if (room != null && room.CheckCompletion())
+        {
+            if (room.endArrow != null) room.endArrow.SetActive(true);
+            room.completionSound.Play();
+        }
+        // Sound
+        deathSound.Play();
+
+
+        // Finishing hit
+        return true;
     }
 
 

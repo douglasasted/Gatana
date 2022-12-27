@@ -115,7 +115,7 @@ public class CombatEnemy : BaseEnemy
     }
 
 
-    public override void Hit()
+    public override bool Hit()
     {
         // Enemy blocks attack if it's currently anticipating
         if (katana.isAnticipating)
@@ -125,7 +125,7 @@ public class CombatEnemy : BaseEnemy
 
 
             // Don't continue the script
-            return;
+            return false;
         }
 
 
@@ -135,6 +135,14 @@ public class CombatEnemy : BaseEnemy
         // Stop katana from continuing attack after enemy has been killed
         katana.Reset();
         katana.katanaVisual.enabled = false;
+
+
+        // Return false if enemy is dead, so that the katana doesn't
+        // activate
+        if (isDead)
+            return false;
+
+        return true;
     }
 
 

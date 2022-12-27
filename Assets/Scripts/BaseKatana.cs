@@ -12,7 +12,6 @@ public class BaseKatana : MonoBehaviour
 
     [Header("Sounds")]
     [SerializeField] AudioSource slashSound;
-    [SerializeField] protected AudioSource hitSound;
 
     [Space]
 

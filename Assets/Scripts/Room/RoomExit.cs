@@ -5,16 +5,23 @@ public class RoomExit : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] RoomController nextRoom;
 
+    [SerializeField] bool desactivateAttack;
+
 
     // Local Variables
+
+    // Initial variables
     RoomController currentRoom;
+    PlayerKatana katana;
 
 
     // Start is called on the frame when a script is enabled just before
     // any of the Update methods is called the first time.
     void Start()
     {
+        // Getting initial variables
         currentRoom = GetComponentInParent<RoomController>();
+        katana = PlayerManager.Instance.player.GetComponentInChildren<PlayerKatana>();
     }
 
     // Sent when another object enters a trigger collider attached to this
@@ -32,6 +39,11 @@ public class RoomExit : MonoBehaviour
             if (!currentRoom.Exit(nextRoom))
                 return;
 
+
+            if (desactivateAttack)
+                katana.SetAttack(false);
+            else
+                katana.SetAttack(true);
 
             // Entering in the new room
             nextRoom.Enter();

@@ -10,8 +10,9 @@ public class PlayerKatana : BaseKatana
     [SerializeField] float cameraShakeTime;
 
     [Header("Player Attributes")]
-
     [SerializeField] bool canAttack = true;
+    [SerializeField] GameObject cursor;
+    [SerializeField] GameObject altCursor;
 
     // Local Variables
 
@@ -103,6 +104,20 @@ public class PlayerKatana : BaseKatana
     }
 
 
+    // Set "canAttack variable" true or false
+    public void SetAttack(bool _canAttack)
+    {
+        // Actually setting the attack
+        canAttack = _canAttack;
+
+        if (cursor == null) return;
+
+        // Which cursor should be activated?
+        cursor.SetActive(_canAttack);
+        altCursor.SetActive(!_canAttack);
+    }
+
+
     // Sent when another object enters a trigger collider attached to this
     // object (2D physics only).
     void OnTriggerEnter2D(Collider2D other)
@@ -112,15 +127,8 @@ public class PlayerKatana : BaseKatana
         if (other.GetComponent<IHittable>() != null)
         {
             // Hit trigger 
-            other.GetComponent<IHittable>().Hit();
-
-
-            // Sound
-
-            // Getting sound Clip
-            hitSound.clip = other.GetComponent<IHittable>().HitClip;
-            // Playing sound clip
-            hitSound.Play();
+            if (!other.GetComponent<IHittable>().Hit())
+                return;
 
 
             // Visual

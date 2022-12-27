@@ -8,6 +8,8 @@ public class RoomController : MonoBehaviour
     [SerializeField] bool noTimerRoom;
     public bool lockedCamera;
     [SerializeField] float completeTime; // The time the player has to complete the room
+    public GameObject endArrow;
+    public AudioSource completionSound;
 
     [Header("Dependencies")]
     [SerializeField] Transform spawnpoint;

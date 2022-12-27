@@ -8,10 +8,13 @@ public class Spike : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // If the player collides with the spike
-        // then reset the room
-        if (other.name == "Player")
-            // Restart the room
+        if (other.gameObject.layer == 12)
+            // then reset the room
             CameraTransition.Instance.TransitionReset();
+        // If the enemy collides with the spike
+        else if (other.gameObject.layer == 10)
+            // then kill the enemy
+            other.GetComponent<BaseEnemy>().Hit();
     }
 
 
