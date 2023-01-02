@@ -29,6 +29,6 @@ public class RoomManager : MonoBehaviour
     #endregion
 
 
-    [HideInInspector] public RoomController currentRoom;
-    [HideInInspector] public RoomController previousRoom;
+    public RoomController currentRoom;
+    public RoomController previousRoom;
 }

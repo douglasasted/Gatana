@@ -156,7 +156,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstRoom: 0
   noTimerRoom: 1
+  lockedCamera: 0
   completeTime: 8
+  endArrow: {fileID: 0}
+  completionSound: {fileID: 0}
   spawnpoint: {fileID: 9064111945538868658}
   enemiesParents: {fileID: 9064111945650679086}
   topRightPoint: {x: 8.89, y: 5}
@@ -191,6 +194,7 @@ PolygonCollider2D:
       - {x: -8.89, y: 5}
       - {x: -8.89, y: -5}
       - {x: 8.89, y: -5}
+  m_UseDelaunayMesh: 0
 --- !u!1 &9064111945538868659
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +290,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

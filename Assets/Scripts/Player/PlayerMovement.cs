@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     #region Variables
 
     [Header("Movement Attributes")]
+    [SerializeField] bool isWalking;
     [SerializeField] float speed;
     [SerializeField] float airSpeed;
 
@@ -320,11 +321,21 @@ public class PlayerMovement : MonoBehaviour
             // In which direction is the character going?
             // give the animation from that
             if (_direction == _horizontalInput)
-                // Direction is the same, then walk forward
-                PlayAnimation("Walk");
+            {
+                    // Direction is the same, then go forward
+                if (isWalking)
+                    PlayAnimation("Walk");
+                else
+                    PlayAnimation("Run");
+            }
             else
-                // Direction is different, then walk backwards
-                PlayAnimation("Walk Backwards");
+            {
+                // Direction is different, then run backwards
+                if (isWalking)
+                    PlayAnimation("Walk Backwards");
+                else
+                    PlayAnimation("Run Backwards");
+            }
         }
         // If nothing else, the player is not moving
         else
@@ -481,6 +492,12 @@ public class PlayerMovement : MonoBehaviour
 
         anim.Play(animation, 0);
         anim.Play(animation, 1);
+    }
+
+    // Reset ability to move
+    public void SetCantMove(bool _cantMove)
+    {
+        cantMove = _cantMove;
     }
 
     #endregion

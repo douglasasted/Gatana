@@ -62,7 +62,7 @@ public class CameraTransition : MonoBehaviour
 
 
         // Getting initial variables
-        player = PlayerManager.Instance.player;
+        if (PlayerManager.Instance != null) player = PlayerManager.Instance.player;
     }
 
 
@@ -123,6 +123,11 @@ public class CameraTransition : MonoBehaviour
         player.GetComponent<Animator>().SetBool("Death", false);
 
 
+        // +1 death, in case there's a stats manager
+        if (StatsManager.Instance != null)
+            StatsManager.Instance.deaths += 1;
+
+
         // If there is a cinemachine confiner
         if (RoomManager.Instance.currentRoom.roomCamera.GetComponent<CinemachineConfiner2D>() != null)
             // Resetting the damping back to normal
@@ -137,6 +142,9 @@ public class CameraTransition : MonoBehaviour
     // Change scene function
     public void ChangeScene() 
     {
+        if (scene == "Exit")
+            Application.Quit();
+
         SceneManager.LoadScene(scene);
     }
 

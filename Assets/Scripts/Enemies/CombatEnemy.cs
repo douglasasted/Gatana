@@ -3,18 +3,11 @@ using UnityEngine;
 
 public class CombatEnemy : BaseEnemy
 {
-    [Header("Combat Attributes")]
-    [SerializeField] float attackRange;
-
-    [Space]
-    [Header("Movement Attributes")]
     [SerializeField] float speed;
 
     [Space]
-    // Attributes for checking if enemy is grounded
-    [SerializeField] float     groundDistance;
-    [SerializeField] Vector2   groundedSize;
-    [SerializeField] LayerMask groundedLayer;
+    [Header("Combat Attributes")]
+    [SerializeField] float attackRange;
 
     [Space]
     [Header("Dash Attributes")]
@@ -38,7 +31,6 @@ public class CombatEnemy : BaseEnemy
     Vector2 dashVelocity;
 
     // Dependencies
-    Animator anim;
     EnemyKatana katana;
 
 
@@ -50,7 +42,6 @@ public class CombatEnemy : BaseEnemy
 
 
         // Getting dependencies
-        anim = GetComponent<Animator>();
         katana = GetComponentInChildren<EnemyKatana>();
 
 
@@ -59,11 +50,30 @@ public class CombatEnemy : BaseEnemy
     }
 
 
+    protected override void Update()
+    {
+        base.Update();
+    }
+
+
     protected override void Main()
     {
         // Function only reaches here if player is on interaction range
         // and enemy is also not dead
-        
+        if (!PlayerOnRange())
+        {
+            // If player is out of range enemy should not be moving
+            rb.velocity *= new Vector2(0, 1);
+
+            // Animation
+            if (IsGrounded())
+                anim.Play("Idle");
+
+
+            return;
+        }
+
+
         // Enemy should also not be dashing right now 
         if (isDashing)
         {
@@ -100,7 +110,7 @@ public class CombatEnemy : BaseEnemy
             // Attack player afterwards
             StartCoroutine(katana.AnticipateAttack((Vector2) transform.position - (Vector2) player.transform.position));
         }
-        else
+        else if (Mathf.Abs(player.transform.position.x - transform.position.x) > 0.75f)
         {
             // Player is not in attack range
 
@@ -108,6 +118,16 @@ public class CombatEnemy : BaseEnemy
             // Getting player's direction (the direction in which the enemy is going to move)
             playerDirection = player.transform.position.x > transform.position.x ? 1 : -1;
         }
+
+
+        // Handling all animation
+        if (IsGrounded())
+            // Is player moving?
+            if (playerDirection != 0)
+                anim.Play("Walk");
+            else
+                anim.Play("Idle");
+        
 
 
         // Moving enemy in intended direction
@@ -211,18 +231,6 @@ public class CombatEnemy : BaseEnemy
 
     #endregion
 
-    #region Collision
-
-    // Check if player is colliding with the ground
-    bool IsGrounded() 
-    {
-        Vector2 _groundedPosition = transform.position + new Vector3(0, -groundDistance, 0);
-
-        return Physics2D.OverlapBox(_groundedPosition, groundedSize, 0f, groundedLayer);
-    }
-
-    #endregion
-
     #region Debug
 
     protected override void OnDrawGizmos()
@@ -235,16 +243,6 @@ public class CombatEnemy : BaseEnemy
         Gizmos.color = Color.red;
         // Drawing the attack circle
         Gizmos.DrawWireSphere(transform.position, attackRange);
-
-
-        // Gizmos for on ground collision
-
-        // Changing the color of the gizmos
-        Gizmos.color = Color.blue;
-        // Getting the position of the grounded collision
-        Vector2 _groundedPosition = transform.position + new Vector3(0, -groundDistance, 0);
-        // Drawing the grounded cube
-        Gizmos.DrawWireCube(_groundedPosition, groundedSize);   
     }
 
     #endregion

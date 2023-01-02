@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class RoomExit : MonoBehaviour
 {
     [Header("Attributes")]
+    [SerializeField] UnityEvent exitEvent;
     [SerializeField] RoomController nextRoom;
 
     [SerializeField] bool desactivateAttack;
@@ -40,10 +43,9 @@ public class RoomExit : MonoBehaviour
                 return;
 
 
-            if (desactivateAttack)
-                katana.SetAttack(false);
-            else
-                katana.SetAttack(true);
+            // Event that should activate when player exits the room
+            exitEvent.Invoke();
+
 
             // Entering in the new room
             nextRoom.Enter();

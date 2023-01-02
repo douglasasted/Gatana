@@ -85,7 +85,7 @@ public class RoomController : MonoBehaviour
     {
         // If player wants to restart the room
         // then restart the room
-        if (inputManager.GetRestartPressed() && currentRoom && timeManager.timerRunning && !CameraTransition.Instance.transitioning)
+        if (inputManager.GetRestartPressed() && currentRoom && timeManager.timerRunning && !CameraTransition.Instance.transitioning && Application.isEditor)
             CameraTransition.Instance.TransitionReset();
     }
 
@@ -171,6 +171,8 @@ public class RoomController : MonoBehaviour
             roomExit.GetComponent<BoxCollider2D>().enabled = false;
         // Removing the priority from this camera for the new room to become the focus
         roomCamera.Priority = 0;
+        // Removing end arrow at the moment
+        if (endArrow != null) endArrow.SetActive(false);
 
 
         return true;
@@ -211,7 +213,11 @@ public class RoomController : MonoBehaviour
         // The enemies and time should only get back, if player
         // still have not completed the level
         if (!completed)
-        {
+        {    
+            // End arrow should not be active if there's one 
+            if (endArrow != null) endArrow.SetActive(false);
+
+
             // Getting enemies back
             foreach (BaseEnemy enemy in enemies)
                 enemy.Reset();

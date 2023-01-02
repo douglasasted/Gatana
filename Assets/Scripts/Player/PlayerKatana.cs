@@ -38,19 +38,17 @@ public class PlayerKatana : BaseKatana
         base.Update();
 
 
-        if (playerMovement.cantMove)
+        if (playerMovement.cantMove || !canAttack)
         {
             // This stops the animation from being in a weird position
-            anim.Play("Idle");
+            anim.SetBool("cantAttack", true);
 
-
-            // This makes the arrow dissapear even when is on idle
-            katanaVisual.enabled = false;
-
-
-            // The script should not continue
-            return;
+            if (playerMovement.cantMove)
+                // The script should not continue
+                return;
         }
+        else
+            anim.SetBool("cantAttack", false);
 
 
         // If we are going forward, then the katana visual needs to be enabled
