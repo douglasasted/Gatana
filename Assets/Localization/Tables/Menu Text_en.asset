@@ -16,10 +16,11 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: ad2e6f178a0673e4e95f10e96c684678, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 1331519657637838893
   m_TableData:
   - m_Id: 55618633728
-    m_Localized: (0.1.0) Created by Douglas Asted
+    m_Localized: (0.0.9) Created by Douglas Asted
     m_Metadata:
       m_Items: []
   - m_Id: 1897484320768
@@ -54,6 +55,23 @@ MonoBehaviour:
     m_Localized: Fullscreen
     m_Metadata:
       m_Items: []
+  - m_Id: 61939550060544
+    m_Localized: 'Least Deaths | '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62026875469824
+    m_Localized: 'Best Time | '
+    m_Metadata:
+      m_Items:
+      - rid: 1331519657637838893
+  - m_Id: 62135256285184
+    m_Localized: 'Soul Tokens | '
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1331519657637838893
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0000e1c169380000

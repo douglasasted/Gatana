@@ -29,26 +29,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-pt-BR
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1a16a0e867f25e84fbe6da700392413c
-    m_Address: Button PT-BR1
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-pt-BR
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5adca979f32a26f4583d6206a8fbd3b5
     m_Address: Button PT-BR2
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-pt-BR
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7cf8cb2ef8413db418055d497d7468cd
-    m_Address: Button PT-BR3
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-pt-BR
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dccaf3e35c87e6c4fae976c4a8732158
-    m_Address: Button PT-BR4
+  - m_GUID: 1a16a0e867f25e84fbe6da700392413c
+    m_Address: Button PT-BR1
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-pt-BR
@@ -59,8 +47,32 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-pt-BR
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dccaf3e35c87e6c4fae976c4a8732158
+    m_Address: Button PT-BR4
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt-BR
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cf8cb2ef8413db418055d497d7468cd
+    m_Address: Button PT-BR3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt-BR
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dd210cad2c01d33498cdf0a977d47345
     m_Address: Button PT-BR8
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt-BR
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 181771bafa7e7bb479363c5d1ee4b729
+    m_Address: Button PT-BR9
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt-BR
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d79ab24eadb4a8144be3ec89f6d9eec8
+    m_Address: Button PT-BR10
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-pt-BR

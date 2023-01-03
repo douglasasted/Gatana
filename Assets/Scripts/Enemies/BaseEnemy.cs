@@ -36,6 +36,7 @@ public class BaseEnemy : MonoBehaviour, IHittable
 
     // Local Variables
     Vector2 startPosition;
+    float currentTouchKnockbackCooldown;
 
     // Initial variables
     Vector2 startGroundedSize;
@@ -69,10 +70,15 @@ public class BaseEnemy : MonoBehaviour, IHittable
     // Update is called every frame, if the MonoBehaviour is enabled.
     protected virtual void Update()
     {
+        // Updating variables
+        currentTouchKnockbackCooldown -= Time.deltaTime;
+
+
         // Start the main loop of the enemy
         // Player needs to not be dead
         if (!isDead) 
             Main();
+        
         
         // Animation that also needs to work with the dead body
         if (!IsGrounded())
@@ -208,10 +214,12 @@ public class BaseEnemy : MonoBehaviour, IHittable
 
     void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.name == "Player")
+        if (other.name == "Player" && currentTouchKnockbackCooldown < 0)
         {
             int _deathMultiplier = isDead ? 2 : 1;
             rb.velocity +=  new Vector2((transform.position - player.transform.position).normalized.x * touchKnockback, 0) * _deathMultiplier;
+        
+            currentTouchKnockbackCooldown = 0.2f;
         }
     }
 

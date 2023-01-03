@@ -24,6 +24,24 @@ MonoBehaviour:
     - Locale-pt-BR
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71403300fe915704daffac19edef5ac3
+    m_Address: Dialog Chapter 1_pt-BR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt-BR
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83157701ab4b68d499f482e2c4f085c1
+    m_Address: Tutorial Text_pt-BR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt-BR
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9ced64c5af0b9e499c207b0252b1098
+    m_Address: Credits Text_pt-BR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt-BR
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 6ad1ef8106a80314db1c9dbe97ca1a02, type: 2}
   m_SchemaSet:

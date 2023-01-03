@@ -164,7 +164,7 @@ public class DialogManager : MonoBehaviour
 
 
         // Type the line
-        dialogText.text = dialogChain[currentLine].line;
+        dialogText.text = dialogChain[currentLine].line.GetLocalizedString();
         StartCoroutine(TypeDialog());
 
 

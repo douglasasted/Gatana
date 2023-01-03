@@ -1,7 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.Localization.Settings;
 using TMPro;
 
 
@@ -14,6 +16,10 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] AudioMixer audioMixer;
 
     [Header("Settings Visually")]
+    [SerializeField] TMP_Dropdown localizationDropdown;
+
+    [Space]
+
     [SerializeField] Slider masterVolumeSlider;
     [SerializeField] Slider musicVolumeSlider;
     [SerializeField] Slider sfxVolumeSlider;
@@ -24,12 +30,35 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] Toggle fullscreenToggle;
 
     // Local variables
+    bool localizationActive = false;
+
     Resolution[] resolutions;
 
 
     void Start() 
     {
         // Getting default values
+
+        // Language
+        if (PlayerPrefs.HasKey("Locale"))
+        {
+            SetLanguage(PlayerPrefs.GetInt("Locale"));
+        
+            // Changing dropdown
+            if (localizationDropdown != null) localizationDropdown.value = PlayerPrefs.GetInt("Locale");
+            
+        }
+        else
+        {
+            int _selectedLocale = LocalizationSettings.AvailableLocales.Locales.IndexOf(LocalizationSettings.SelectedLocale);
+            
+            // Setting in player preferences
+            PlayerPrefs.SetInt("Locale", _selectedLocale);
+        
+            // Changing dropdown
+            if (localizationDropdown != null) localizationDropdown.value = _selectedLocale;
+        }
+
 
         // Master volume
         masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume"); 
@@ -40,6 +69,7 @@ public class SettingsMenu : MonoBehaviour
         // SFX volume
         sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume"); 
         audioMixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
+
 
         // Getting resolution options
         resolutions = Screen.resolutions;
@@ -82,11 +112,32 @@ public class SettingsMenu : MonoBehaviour
 
         resolutionsDropdown.RefreshShownValue();
 
-        // Has the player already selected an resolution before?
 
         // Should be fullscreen?
         Screen.fullScreen = PlayerPrefs.GetInt("IsFullscreen") == 1 ? false : true;
         fullscreenToggle.isOn = Screen.fullScreen;
+    }
+
+
+    public void SetLanguage(int _localeID)
+    {
+        if (localizationActive)
+            return;
+            
+        StartCoroutine(SetLocale(_localeID));
+    }
+
+    IEnumerator SetLocale(int _localeID) 
+    {
+        localizationActive = true;
+
+        yield return LocalizationSettings.InitializationOperation;
+
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_localeID];
+
+        PlayerPrefs.SetInt("Locale", _localeID);
+    
+        localizationActive = false;
     }
 
 

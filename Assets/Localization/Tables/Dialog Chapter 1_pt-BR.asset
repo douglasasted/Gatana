@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Dialog Chapter 1_pt-BR
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt-BR
+  m_SharedData: {fileID: 11400000, guid: 456c5887c39546f488fb8fe856603ba1, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 8193638400
+    m_Localized: Finalmente eu cheguei...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2879094063104
+    m_Localized: Lembre-se do nosso contrato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960673275904
+    m_Localized: "Eu vou enfraquec\xEA-los"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2976884260864
+    m_Localized: Eu vou te fortalecer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3006911283200
+    m_Localized: Mas em retorno...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3018495950848
+    m_Localized: "...voc\xEA deve matar todos eles"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3027723419648
+    m_Localized: "Nunca se esque\xE7a do que voc\xEA deve a mim"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4397033652224
+    m_Localized: "Eu sei o que voc\xEA veio fazer aqui"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4430789410816
+    m_Localized: "Eu n\xE3o tenho arrependimentos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4447390466048
+    m_Localized: "Se voc\xEA deseja minha morte, ent\xE3o eu devo estar pagando pelos
+      erros cometidos por outros"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4456831844352
+    m_Localized: "Ent\xE3o... A unica coisa que eu quero como ultimo desejo \xE9
+      sentir o cheiro das flores uma \xFAltima vez"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4465610522624
+    m_Localized: Agora eu estou pronto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4474707968000
+    m_Localized: Eu sinto muito, mas eu devo fazer isso
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

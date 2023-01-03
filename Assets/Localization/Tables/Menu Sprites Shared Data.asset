@@ -47,10 +47,17 @@ MonoBehaviour:
     m_Key: NewGameSelected
     m_Metadata:
       m_Items: []
+  - m_Id: 110796166201344
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 110834456002560
+    m_Key: ContinueSelected
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 1331519654354485325
-    - rid: 1331519654354485356
   m_KeyGenerator:
     rid: 1331519654354485324
   references:
@@ -68,39 +75,41 @@ MonoBehaviour:
           m_TableCodes:
           - en
           - pt-BR
-        m_TypeString: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-    - rid: 1331519654354485356
-      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_Entries:
-        - m_KeyId: 13627908227072
-          m_TableCodes:
-          - en
-          - pt-BR
-        - m_KeyId: 13642512793600
-          m_TableCodes:
-          - en
-          - pt-BR
-        - m_KeyId: 13692009775104
+        - m_KeyId: 15316644069376
           m_TableCodes:
           - en
           - pt-BR
         - m_KeyId: 13709252558848
           m_TableCodes:
-          - en
           - pt-BR
-        - m_KeyId: 13660133064704
+          - en
+        - m_KeyId: 13692009775104
           m_TableCodes:
-          - en
           - pt-BR
+          - en
+        - m_KeyId: 13642512793600
+          m_TableCodes:
+          - pt-BR
+          - en
         - m_KeyId: 13671805812736
           m_TableCodes:
-          - en
           - pt-BR
-        - m_KeyId: 15316644069376
+          - en
+        - m_KeyId: 13660133064704
+          m_TableCodes:
+          - pt-BR
+          - en
+        - m_KeyId: 13627908227072
+          m_TableCodes:
+          - pt-BR
+          - en
+        - m_KeyId: 110796166201344
           m_TableCodes:
           - en
           - pt-BR
-        m_TypeString: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+        - m_KeyId: 110834456002560
+          m_TableCodes:
+          - en
+          - pt-BR
+        m_TypeString: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null

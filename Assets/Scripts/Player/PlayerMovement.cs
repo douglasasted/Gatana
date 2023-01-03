@@ -79,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Hidden variables
     [HideInInspector] public bool isDashing;
+    [HideInInspector] public bool isPaused;
     [HideInInspector] public bool cantMove;
 
     [HideInInspector] public float gravityScale;
@@ -121,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
     {        
         // If player is currently dashing
         // than he should not be in control until it ends
-        if (isDashing)
+        if (isDashing || isPaused)
             return;
 
 

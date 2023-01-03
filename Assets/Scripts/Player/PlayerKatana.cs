@@ -35,6 +35,9 @@ public class PlayerKatana : BaseKatana
     // Update is called once per frame
     protected override void Update()
     {
+        if (playerMovement.isPaused)
+            return;
+
         base.Update();
 
 

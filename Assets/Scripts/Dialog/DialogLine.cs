@@ -1,9 +1,9 @@
-using UnityEngine;
+using UnityEngine.Localization;
 
 
 [System.Serializable]
 public class DialogLine
 {
-    [TextArea] public string line;
+    public LocalizedString line;
     public int speaker;
 }

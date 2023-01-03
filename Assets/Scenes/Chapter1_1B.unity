@@ -491,17 +491,65 @@ MonoBehaviour:
     finishDialogIndicator: {fileID: 874566815}
     sound: {fileID: 8300000, guid: c83682ab460ad4d47adf3104d202f94c, type: 3}
   dialogChain:
-  - line: Remember our contract
+  - line:
+      m_TableReference:
+        m_TableCollectionName: GUID:456c5887c39546f488fb8fe856603ba1
+      m_TableEntryReference:
+        m_KeyId: 2879094063104
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     speaker: 0
-  - line: I will make them weak
+  - line:
+      m_TableReference:
+        m_TableCollectionName: GUID:456c5887c39546f488fb8fe856603ba1
+      m_TableEntryReference:
+        m_KeyId: 2960673275904
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     speaker: 0
-  - line: I will make you strong
+  - line:
+      m_TableReference:
+        m_TableCollectionName: GUID:456c5887c39546f488fb8fe856603ba1
+      m_TableEntryReference:
+        m_KeyId: 2976884260864
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     speaker: 0
-  - line: But in return...
+  - line:
+      m_TableReference:
+        m_TableCollectionName: GUID:456c5887c39546f488fb8fe856603ba1
+      m_TableEntryReference:
+        m_KeyId: 3006911283200
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     speaker: 0
-  - line: ...you will kill them all
+  - line:
+      m_TableReference:
+        m_TableCollectionName: GUID:456c5887c39546f488fb8fe856603ba1
+      m_TableEntryReference:
+        m_KeyId: 3018495950848
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     speaker: 0
-  - line: Never forget what you owe me
+  - line:
+      m_TableReference:
+        m_TableCollectionName: GUID:456c5887c39546f488fb8fe856603ba1
+      m_TableEntryReference:
+        m_KeyId: 3027723419648
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     speaker: 0
   onDialogFinish:
     m_PersistentCalls:
@@ -518,6 +566,9 @@ MonoBehaviour:
           m_StringArgument: Closing
           m_BoolArgument: 0
         m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &228054851
 Transform:
   m_ObjectHideFlags: 0
@@ -1350,7 +1401,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -52.99}
-  m_SizeDelta: {x: 386.4, y: 50}
+  m_SizeDelta: {x: 425.94, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1248950645
 MonoBehaviour:

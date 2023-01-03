@@ -50,12 +50,6 @@ public class CombatEnemy : BaseEnemy
     }
 
 
-    protected override void Update()
-    {
-        base.Update();
-    }
-
-
     protected override void Main()
     {
         // Function only reaches here if player is on interaction range

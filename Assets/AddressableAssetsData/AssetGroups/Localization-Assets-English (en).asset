@@ -29,14 +29,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a12e44a6190865c4c98d1dbe9903ad1b
-    m_Address: Button EN3
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d5ea458c06944d14d961fb3226661bf1
-    m_Address: Button EN4
+  - m_GUID: dcc6db5415c71004db4127f6b678e009
+    m_Address: Button EN8
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
@@ -47,8 +41,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dcc6db5415c71004db4127f6b678e009
-    m_Address: Button EN8
+  - m_GUID: d5ea458c06944d14d961fb3226661bf1
+    m_Address: Button EN4
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a12e44a6190865c4c98d1dbe9903ad1b
+    m_Address: Button EN3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 035402a90c539fb42817c1d702d240de
+    m_Address: Button EN2
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
@@ -59,8 +65,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 035402a90c539fb42817c1d702d240de
-    m_Address: Button EN2
+  - m_GUID: 4dd9531f8a0bb6f4da7d106d02cf362c
+    m_Address: Button EN9
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: deb8c347fb784714d9e83a088a3a3a36
+    m_Address: Button EN10
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

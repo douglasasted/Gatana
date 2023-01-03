@@ -51,6 +51,18 @@ MonoBehaviour:
     m_Key: Fullscreen
     m_Metadata:
       m_Items: []
+  - m_Id: 61939550060544
+    m_Key: LeastDeaths
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62026875469824
+    m_Key: BestTime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62135256285184
+    m_Key: SoulTokens
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

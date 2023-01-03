@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Localization;
 using TMPro;
 
 
@@ -17,6 +18,12 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] AudioSource pressSound;
 
+    [Space]
+
+    [SerializeField] LocalizedString leastDeathsLine;
+    [SerializeField] LocalizedString bestTimeLine;
+    [SerializeField] LocalizedString soulTokensLine;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,17 +40,17 @@ public class MainMenu : MonoBehaviour
         if (_leastDeaths == -1)
             leastDeathsText.text = "";
         else
-            leastDeathsText.text = "Least Deaths | " + _leastDeaths.ToString();
+            leastDeathsText.text = leastDeathsLine.GetLocalizedString() + _leastDeaths.ToString();
 
         if (_bestRunTime == -1)
             bestRunTimeText.text =  "";
         else
-            bestRunTimeText.text = "Best Time | " + StatsManager.Instance.ConvertToMinutesSeconds(_bestRunTime);
+            bestRunTimeText.text = bestTimeLine.GetLocalizedString() + StatsManager.Instance.ConvertToMinutesSeconds(_bestRunTime);
 
         if (_collectedTokens == -1)
             tokensText.text =  "";
         else
-            tokensText.text = "Soul Tokens | " + _collectedTokens + "/" + _maxTokens;
+            tokensText.text = soulTokensLine.GetLocalizedString() + _collectedTokens + "/" + _maxTokens;
     }
 
     public void NewGame()

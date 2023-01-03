@@ -23,31 +23,39 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 15316644069376
-    m_Localized: 15af361501e20f24c825331e29a45afd
-    m_Metadata:
-      m_Items: []
-  - m_Id: 13660133064704
-    m_Localized: 1a16a0e867f25e84fbe6da700392413c
+    m_Localized: 15af361501e20f24c825331e29a45afd[Button PT-BR6]
     m_Metadata:
       m_Items: []
   - m_Id: 13671805812736
-    m_Localized: 5adca979f32a26f4583d6206a8fbd3b5
+    m_Localized: 5adca979f32a26f4583d6206a8fbd3b5[Button PT-BR2]
     m_Metadata:
       m_Items: []
-  - m_Id: 13627908227072
-    m_Localized: 7cf8cb2ef8413db418055d497d7468cd
-    m_Metadata:
-      m_Items: []
-  - m_Id: 13642512793600
-    m_Localized: dccaf3e35c87e6c4fae976c4a8732158
+  - m_Id: 13660133064704
+    m_Localized: 1a16a0e867f25e84fbe6da700392413c[Button PT-BR1]
     m_Metadata:
       m_Items: []
   - m_Id: 13692009775104
-    m_Localized: 4dba2aecc6bb61d429ea00e3066e9564
+    m_Localized: 4dba2aecc6bb61d429ea00e3066e9564[Button PT-BR7]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13642512793600
+    m_Localized: dccaf3e35c87e6c4fae976c4a8732158[Button PT-BR4]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13627908227072
+    m_Localized: 7cf8cb2ef8413db418055d497d7468cd[Button PT-BR3]
     m_Metadata:
       m_Items: []
   - m_Id: 13709252558848
-    m_Localized: dd210cad2c01d33498cdf0a977d47345
+    m_Localized: dd210cad2c01d33498cdf0a977d47345[Button PT-BR8]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 110796166201344
+    m_Localized: 181771bafa7e7bb479363c5d1ee4b729[Button PT-BR9]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 110834456002560
+    m_Localized: d79ab24eadb4a8144be3ec89f6d9eec8[Button PT-BR10]
     m_Metadata:
       m_Items: []
   references:

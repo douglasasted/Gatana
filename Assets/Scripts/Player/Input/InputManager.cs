@@ -96,4 +96,9 @@ public class InputManager : MonoBehaviour
     {
         return controls.Player.Interact.WasPressedThisFrame();
     }
+
+    public bool GetEscape() 
+    {
+        return controls.Player.Escape.WasPressedThisFrame();
+    }
 }

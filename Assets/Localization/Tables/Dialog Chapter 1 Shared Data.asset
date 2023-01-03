@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Dialog Chapter 1 Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Dialog Chapter 1
+  m_TableCollectionNameGuidString: 456c5887c39546f488fb8fe856603ba1
+  m_Entries:
+  - m_Id: 8193638400
+    m_Key: Chapter1_1_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2879094063104
+    m_Key: Chapter1_1B_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960673275904
+    m_Key: Chapter1_1B_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2976884260864
+    m_Key: Chapter1_1B_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3006911283200
+    m_Key: Chapter1_1B_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3018495950848
+    m_Key: Chapter1_1B_5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3027723419648
+    m_Key: Chapter1_1B_6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4397033652224
+    m_Key: Chapter1_5_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4430789410816
+    m_Key: Chapter1_5_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4447390466048
+    m_Key: Chapter1_5_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4456831844352
+    m_Key: Chapter1_5_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4465610522624
+    m_Key: Chapter1_5_5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4474707968000
+    m_Key: Chapter1_5_6
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1331519657637838860
+  references:
+    version: 2
+    RefIds:
+    - rid: 1331519657637838860
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1672755209943

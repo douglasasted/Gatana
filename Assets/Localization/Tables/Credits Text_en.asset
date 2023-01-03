@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Credits Text_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 1d983e434721003429d54faba38e549f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 7526744064
+    m_Localized: A game by <size=1.1em><color=#FF5522>Douglas Asted</color></size>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 180650835968
+    m_Localized: Thank you for playing!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 255678545920
+    m_Localized: "You finished in\n\n\n     You died\n\n\n     times in total"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 570125516800
+    m_Localized: 'You collected
+
+
+
+      of the Soul Tokens'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Dialog Chapter 1_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 456c5887c39546f488fb8fe856603ba1, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 1331519657637838877
+  m_TableData:
+  - m_Id: 8193638400
+    m_Localized: Finally I arrive...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2879094063104
+    m_Localized: Remember our contract
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2960673275904
+    m_Localized: I will make them weak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2976884260864
+    m_Localized: I will make you strong
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3006911283200
+    m_Localized: But in return...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3018495950848
+    m_Localized: ...you must kill them all
+    m_Metadata:
+      m_Items:
+      - rid: 1331519657637838877
+  - m_Id: 3027723419648
+    m_Localized: Never forget what you owe me
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4397033652224
+    m_Localized: I know what you came here to do
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4430789410816
+    m_Localized: I have no regrets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4447390466048
+    m_Localized: If you desire my death, than I must be paying for the mistakes committed
+      by others
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4456831844352
+    m_Localized: Than... The only thing I want as a last wish is to feel the smells
+      of the flowers one last time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4465610522624
+    m_Localized: Now I'm ready...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4474707968000
+    m_Localized: I'm sorry, but I must do this
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 1331519657637838877
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 000061ccbe020000

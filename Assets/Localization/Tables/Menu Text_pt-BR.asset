@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 55618633728
-    m_Localized: (0.1.0) Criado por Douglas Asted
+    m_Localized: (0.0.9) Criado por Douglas Asted
     m_Metadata:
       m_Items: []
   - m_Id: 1897484320768
@@ -52,6 +52,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 3399372308480
     m_Localized: Fullscreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61939550060544
+    m_Localized: 'Menos Mortes | '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62026875469824
+    m_Localized: 'Melhor Tempo | '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62135256285184
+    m_Localized: 'Fichas da Alma | '
     m_Metadata:
       m_Items: []
   references:
