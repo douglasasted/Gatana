@@ -145,6 +145,7 @@ MonoBehaviour:
   mainVisual: {fileID: 803153651145018951}
   deadVisual: {fileID: 1003536807382364948}
   bloodSplashVisual: {fileID: 7460285571755062921}
+  weakenEffectVisual: {fileID: 0}
   bloodEffect: {fileID: 5336107622075690319, guid: 050755eff740f274ab5cf2eda89fd6b7, type: 3}
   deathSound: {fileID: 6296695932789826130}
   groundDistance: 0.28
@@ -676,7 +677,7 @@ AudioSource:
   m_GameObject: {fileID: 6262208250625479871}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 704952288222362061, guid: 51e12dab5f4f3614bab69713a7b29954, type: 2}
   m_audioClip: {fileID: 8300000, guid: 527db459423765d409dd76ba2d7405da, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.15
@@ -804,7 +805,7 @@ AudioSource:
   m_GameObject: {fileID: 6262208250694241627}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 704952288222362061, guid: 51e12dab5f4f3614bab69713a7b29954, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6cf19ea97302c534bb972da3da02bdf5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6
@@ -932,7 +933,7 @@ AudioSource:
   m_GameObject: {fileID: 6262208251108842812}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 704952288222362061, guid: 51e12dab5f4f3614bab69713a7b29954, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4e04dee8b06b83a4e8a3103b2ded663c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
@@ -1160,7 +1161,7 @@ AudioSource:
   m_GameObject: {fileID: 8998227404064294807}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 704952288222362061, guid: 51e12dab5f4f3614bab69713a7b29954, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6cf19ea97302c534bb972da3da02bdf5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6

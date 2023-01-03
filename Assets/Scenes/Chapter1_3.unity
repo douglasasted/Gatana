@@ -194,6 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 1582972194}
   desactivateAttack: 0
 --- !u!1001 &4837880
@@ -721,6 +724,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 1251798962}
   desactivateAttack: 0
 --- !u!1001 &77415206
@@ -1404,6 +1410,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 2014327689}
   desactivateAttack: 0
 --- !u!1001 &179134416
@@ -1807,6 +1816,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 618124816}
   desactivateAttack: 0
 --- !u!1 &232502387
@@ -2037,6 +2049,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 2028776692}
   desactivateAttack: 0
 --- !u!1 &253849777
@@ -2792,6 +2807,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 1852102032}
   desactivateAttack: 0
 --- !u!1 &404689389
@@ -2897,7 +2915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8041464288548665514, guid: 63c5197eb4389b64fa81c10f1f5916c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.009781837
+      value: -0.007642746
       objectReference: {fileID: 0}
     - target: {fileID: 8041464288548665514, guid: 63c5197eb4389b64fa81c10f1f5916c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4018,6 +4036,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 1008141112}
   desactivateAttack: 0
 --- !u!1 &585237944
@@ -4250,6 +4271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 2076594078}
   desactivateAttack: 0
 --- !u!1001 &595371709
@@ -5003,6 +5027,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 2028776692}
   desactivateAttack: 0
 --- !u!1 &701195552
@@ -5867,6 +5894,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 93960303}
   desactivateAttack: 0
 --- !u!4 &830985186 stripped
@@ -6161,6 +6191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 1438626313}
   desactivateAttack: 0
 --- !u!1001 &844557231
@@ -6302,6 +6335,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 2066313632}
   desactivateAttack: 0
 --- !u!1 &900666368
@@ -7365,6 +7401,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 1251798962}
   desactivateAttack: 0
 --- !u!1 &1047743169
@@ -7700,6 +7739,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 1868602450}
   desactivateAttack: 0
 --- !u!1 &1072284253
@@ -8199,7 +8241,7 @@ AudioSource:
   m_GameObject: {fileID: 1187421912}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 704952288222362061, guid: 51e12dab5f4f3614bab69713a7b29954, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7af67092b37a00c4b9a9114748a198cc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.25
@@ -129620,6 +129662,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 232502388}
   desactivateAttack: 0
 --- !u!1 &1367586370
@@ -129787,6 +129832,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 1852102032}
   desactivateAttack: 0
 --- !u!1001 &1390871032
@@ -130225,6 +130273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 1438626313}
   desactivateAttack: 0
 --- !u!4 &1499010050 stripped
@@ -130637,6 +130688,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 1582972194}
   desactivateAttack: 0
 --- !u!1001 &1571235049
@@ -131862,6 +131916,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 2014327689}
   desactivateAttack: 0
 --- !u!1001 &1731799695
@@ -132893,6 +132950,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 1868602450}
   desactivateAttack: 0
 --- !u!1 &1894716614
@@ -132966,6 +133026,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 232502388}
   desactivateAttack: 0
 --- !u!1 &1918414398
@@ -133039,6 +133102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 2076594078}
   desactivateAttack: 0
 --- !u!1 &1935104523
@@ -133112,6 +133178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 2014327689}
   desactivateAttack: 0
 --- !u!1 &1937828709
@@ -133472,7 +133541,7 @@ AudioSource:
   m_GameObject: {fileID: 1993466591}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 704952288222362061, guid: 51e12dab5f4f3614bab69713a7b29954, type: 2}
   m_audioClip: {fileID: 8300000, guid: f8db884c8b6442c44bb42331ebda1147, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.25
@@ -134250,6 +134319,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c420fed8308fd145a7123f31d41d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   nextRoom: {fileID: 618124816}
   desactivateAttack: 0
 --- !u!1 &2076594075

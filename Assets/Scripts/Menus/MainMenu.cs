@@ -2,11 +2,21 @@ using UnityEngine;
 using TMPro;
 
 
-public class MenuController : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     [SerializeField] TMP_Text bestRunTimeText;
     [SerializeField] TMP_Text leastDeathsText;
     [SerializeField] TMP_Text tokensText;
+
+    [Space]
+
+    [SerializeField] GameObject baseMenu;
+    [SerializeField] GameObject settingsMenu;
+
+    [Space]
+
+    [SerializeField] AudioSource pressSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,11 +48,43 @@ public class MenuController : MonoBehaviour
 
     public void NewGame()
     {
+        // Sound
+        pressSound.Play();
+
+
+        // Utility
         CameraTransition.Instance.TransitionScene("Chapter1_1");
     }
     
+    public void Settings()
+    {
+        // Sound
+        pressSound.Play();
+
+
+        // Utility
+        baseMenu.SetActive(false);
+        settingsMenu.SetActive(true);
+    }
+    
+    public void Back()
+    {
+        // Sound
+        pressSound.Play();
+
+
+        // Utility
+        baseMenu.SetActive(true);
+        settingsMenu.SetActive(false);
+    }
+
     public void Exit()
     {
+        // Sound
+        pressSound.Play();
+
+
+        // Utility
         CameraTransition.Instance.TransitionScene("Exit");
     }
 }
