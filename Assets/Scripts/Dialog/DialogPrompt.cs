@@ -36,7 +36,8 @@ public class DialogPrompt : MonoBehaviour
     void Update()
     {
         // If player is in interact range than show the prompt
-        if (Vector2.Distance(transform.position, player.transform.position) < interactRange && !interacted)
+        if (Vector2.Distance(transform.position, player.transform.position) < interactRange && 
+           Vector2.Distance(transform.position, player.transform.position) > 1 && !interacted)
         {
             // Prompt visually
             interactPrompt.SetActive(true);

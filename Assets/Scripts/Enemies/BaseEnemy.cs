@@ -79,7 +79,7 @@ public class BaseEnemy : MonoBehaviour, IHittable
         if (!isDead) 
             Main();
         
-        
+
         // Animation that also needs to work with the dead body
         if (!IsGrounded())
         {
@@ -219,7 +219,7 @@ public class BaseEnemy : MonoBehaviour, IHittable
             int _deathMultiplier = isDead ? 2 : 1;
             rb.velocity +=  new Vector2((transform.position - player.transform.position).normalized.x * touchKnockback, 0) * _deathMultiplier;
         
-            currentTouchKnockbackCooldown = 0.2f;
+            currentTouchKnockbackCooldown = 0.5f;
         }
     }
 

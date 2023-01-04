@@ -80,13 +80,19 @@ public class RoomController : MonoBehaviour
         }
     }
 
+    int screenshootValue;
+
     // Update is called every frame, if the MonoBehaviour is enabled.
     void Update()
     {
         // If player wants to restart the room
         // then restart the room
-        if (inputManager.GetRestartPressed() && currentRoom && timeManager.timerRunning && !CameraTransition.Instance.transitioning && Application.isEditor)
-            CameraTransition.Instance.TransitionReset();
+        if (inputManager.GetRestartPressed())// && currentRoom && timeManager.timerRunning && !CameraTransition.Instance.transitioning)// && Application.isEditor)
+        {
+            screenshootValue += 1;
+            ScreenCapture.CaptureScreenshot("screenshoot" + screenshootValue + ".png", 4);
+        }
+            //CameraTransition.Instance.TransitionReset();
     }
 
 
